@@ -2,7 +2,8 @@
 
 ## 快速链接
 【新概念游戏王】408环境介绍（低门槛轻度桌游）  
-卡池文字表格版，支持8位密码和卡名搜索  
+[408环境（标准）卡池](https://masteryuten.github.io/ygo408/Articles/Cardpool%20Banlist/Cardpool.html)  
+[408环境（标准）限制卡表(2006年3月表)](https://masteryuten.github.io/ygo408/Articles/Cardpool%20Banlist/BanList.html)  
 线上决斗指南  
 游戏/补丁、试玩打印文件下载  
 游戏王打印教程  
