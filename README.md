@@ -5,11 +5,11 @@
 </center>
 
 ## 常驻玩家快速链接
-[游戏王打印教程](https://masteryuten.github.io/ygo408/Articles/Notices/Print.html)  
+[游戏王打印教程](./Articles/Notices/Print.html)  
 [卡组分享（原创·投稿）](./Articles/Deck_original/Original_Submit.html)   
-[卡组分享（搬运·翻译）]()（页面待建设）  
-[决斗群组](https://masteryuten.github.io/ygo408/Articles/Notices/Groups.html)  
-[比赛信息]()（页面待建设）  
+[卡组分享（搬运·翻译）](./Articles/Deck_Transport/Deck_Transport.html)  
+[决斗群组](./Articles/Notices/Groups.html)  
+[比赛信息](./Articles/Competitions/Competitions.html)  
 
 ## 游戏王408环境入门攻略
 408环境规则省流版  
@@ -21,12 +21,12 @@
 引导群（封群备用）：912340958  
 
 📚 入门必看  
-→ [环境设定说明书](https://masteryuten.github.io/ygo408/Articles/Notices/Intro.html)  
-→ [可用卡池白名单](https://masteryuten.github.io/ygo408/Articles/Cardpool%20Banlist/Cardpool.html)  
-→ [本环境限制卡表](https://masteryuten.github.io/ygo408/Articles/Cardpool%20Banlist/BanList.html)  
+→ [环境设定说明书](./Articles/Notices/Intro.html)  
+→ [可用卡池白名单](./Articles/Cardpool%20Banlist/Cardpool.html)  
+→ [本环境限制卡表](./Articles/Cardpool%20Banlist/BanList.html)  
 
 🕹 开战工具包  
-▷ [联机教程+软件下载](https://masteryuten.github.io/ygo408/Articles/Notices/Online.html)  
+▷ [联机教程+软件下载](./Articles/Notices/Online.html)  
 ▷ [卡组打印文件 含竞技/入门模板](https://pan.baidu.com/s/1YLqfZ3qCuIaU5aTDeR7VRQ?pwd=1919)  
 ▷ [环境补丁懒人包 电脑/安卓便利安装](https://pan.baidu.com/s/14vqrqXSJfsh7dVdnW2535w?pwd=1919)
 
