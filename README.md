@@ -6,10 +6,10 @@
 
 ## 常驻玩家快速链接
 [游戏王打印教程](https://masteryuten.github.io/ygo408/Articles/Notices/Print.html)  
-[卡组分享（原创·投稿）]()  
-[卡组分享（搬运·翻译）]()  
-[决斗群组]()  
-[比赛信息]()  
+[卡组分享（原创·投稿）]()(页面待建设)  
+[卡组分享（搬运·翻译）]()(页面待建设)  
+[决斗群组](https://masteryuten.github.io/ygo408/Articles/Notices/Groups.html)  
+[比赛信息]()(页面待建设)  
 
 ## 游戏王408环境入门攻略
 408环境规则省流版  
@@ -26,7 +26,7 @@
 → [本环境限制卡表](https://masteryuten.github.io/ygo408/Articles/Cardpool%20Banlist/BanList.html)  
 
 🕹 开战工具包  
-▷ [联机教程+软件下载](https://www.bilibili.com/read/cv18772773)  
+▷ [联机教程+软件下载](https://masteryuten.github.io/ygo408/Articles/Notices/Online.html)  
 ▷ [卡组打印文件 含竞技/入门模板](https://pan.baidu.com/s/YLqfZ3qCuIaU5aTDeR7VRQ?pwd=1919)  
 ▷ [环境补丁懒人包 电脑/安卓便利安装](https://pan.baidu.com/s/14vqrqXSJfsh7dVdnW2535w?pwd=1919)
 
