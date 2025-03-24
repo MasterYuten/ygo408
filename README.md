@@ -27,7 +27,7 @@
 
 🕹 开战工具包  
 ▷ [联机教程+软件下载](https://masteryuten.github.io/ygo408/Articles/Notices/Online.html)  
-▷ [卡组打印文件 含竞技/入门模板](https://pan.baidu.com/s/YLqfZ3qCuIaU5aTDeR7VRQ?pwd=1919)  
+▷ [卡组打印文件 含竞技/入门模板](https://pan.baidu.com/s/1YLqfZ3qCuIaU5aTDeR7VRQ?pwd=1919)  
 ▷ [环境补丁懒人包 电脑/安卓便利安装](https://pan.baidu.com/s/14vqrqXSJfsh7dVdnW2535w?pwd=1919)
 
 💬 交流社区  
