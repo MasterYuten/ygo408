@@ -6,10 +6,10 @@
 
 ## 常驻玩家快速链接
 [游戏王打印教程](https://masteryuten.github.io/ygo408/Articles/Notices/Print.html)  
-[卡组分享（原创·投稿）]()(页面待建设)  
-[卡组分享（搬运·翻译）]()(页面待建设)  
+[卡组分享（原创·投稿）](./Articles/Deck_original/Original_Submit.html)   
+[卡组分享（搬运·翻译）]()（页面待建设）  
 [决斗群组](https://masteryuten.github.io/ygo408/Articles/Notices/Groups.html)  
-[比赛信息]()(页面待建设)  
+[比赛信息]()（页面待建设）  
 
 ## 游戏王408环境入门攻略
 408环境规则省流版  
