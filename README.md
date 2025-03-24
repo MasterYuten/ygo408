@@ -5,7 +5,7 @@
 </center>
 
 ## 常驻玩家快速链接
-[游戏王打印教程]()  
+[游戏王打印教程](https://masteryuten.github.io/ygo408/Articles/Notices/Print.html)  
 [卡组分享（原创·投稿）]()  
 [卡组分享（搬运·翻译）]()  
 [决斗群组]()  
@@ -21,14 +21,14 @@
 引导群（封群备用）：912340958  
 
 📚 入门必看  
-→ [环境设定说明书](https://masteryuten.github.io/ygo408/Articles/Notices/Intro.html)    
+→ [环境设定说明书](https://masteryuten.github.io/ygo408/Articles/Notices/Intro.html)  
 → [可用卡池白名单](https://masteryuten.github.io/ygo408/Articles/Cardpool%20Banlist/Cardpool.html)  
-→ [本环境限制卡表](https://masteryuten.github.io/ygo408/Articles/Cardpool%20Banlist/BanList.html)    
+→ [本环境限制卡表](https://masteryuten.github.io/ygo408/Articles/Cardpool%20Banlist/BanList.html)  
 
 🕹 开战工具包  
 ▷ [联机教程+软件下载](https://www.bilibili.com/read/cv18772773)  
 ▷ [卡组打印文件 含竞技/入门模板](https://pan.baidu.com/s/YLqfZ3qCuIaU5aTDeR7VRQ?pwd=1919)  
-▷ [环境补丁懒人包 电脑/安卓便利安装]([：](https://pan.baidu.com/s/14vqrqXSJfsh7dVdnW2535w?pwd=1919))  
+▷ [环境补丁懒人包 电脑/安卓便利安装](https://pan.baidu.com/s/14vqrqXSJfsh7dVdnW2535w?pwd=1919)
 
 💬 交流社区  
 ✔️ [群组整合](https://www.bilibili.com/read/cv39043663)  
