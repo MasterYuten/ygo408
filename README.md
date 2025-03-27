@@ -49,27 +49,27 @@
 
 #### 入门/一般玩家
 
-- [官方规则简体中文小册子](https://source.windoent.com/yugioh/rulebook_2020_SC_ver7.pdf)
-  - 第35-48页为OCG环境内容，仅作扩展阅读。
-  - 可下载PDF文件。
+- [官方规则简体中文小册子](https://source.windoent.com/yugioh/rulebook_2020_SC_ver7.pdf)  
+  - 第35-48页为OCG环境内容，仅作扩展阅读。  
+  - 可下载PDF文件。  
 
 #### 进阶玩家/理论研究
 
-- [OCG规则（碎冰整合）](https://ocg-rule.readthedocs.io/zh-cn/latest/index.html)
-- [游戏王OCG完全规则书2020（中文翻译）](https://ocg-rulebook.readthedocs.io/zh-cn/latest/)
+- [OCG规则（碎冰整合）](https://ocg-rule.readthedocs.io/zh-cn/latest/index.html)  
+- [游戏王OCG完全规则书2020（中文翻译）](https://ocg-rulebook.readthedocs.io/zh-cn/latest/)  
 
 ### 外文（建议配合翻译功能）
 
-- [游戏王OCG卡片数据库（官方日语）](https://www.db.yugioh-card.com/yugiohdb/?request_locale=ja)
-- [游戏王卡片wiki（民间日语）](https://yugioh-wiki.net/)
+- [游戏王OCG卡片数据库（官方日语）](https://www.db.yugioh-card.com/yugiohdb/?request_locale=ja)  
+- [游戏王卡片wiki（民间日语）](https://yugioh-wiki.net/)  
 
 ## 联系站长
 
 - 网站维护：神之吹息  
-  - [神之吹息的B站空间](https://space.bilibili.com/839586)
-    - 大量教学、决斗视频资源
+  - [神之吹息的B站空间](https://space.bilibili.com/839586)  
+    - 大量教学、决斗视频资源  
 
 ## 友情链接
 
-- [百鸽](https://ygocdb.com/)
-- [萌卡 YGOPro 社区](https://ygobbs2.com/)
+- [百鸽](https://ygocdb.com/)  
+- [萌卡 YGOPro 社区](https://ygobbs2.com/)  
