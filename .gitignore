@@ -21,6 +21,6 @@ yarn-error.log*
 *.sw*
 
 #不上传.git\objects\pack乃至整个.git里的东西
-.git/
-pack/
+.git
+pack
 .gitignore
