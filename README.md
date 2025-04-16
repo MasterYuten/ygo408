@@ -7,7 +7,7 @@
 ## 常驻玩家快速链接
 
 [比赛信息](./Articles/Competitions/Competitions.html)  
-[卡组分享（原创·投稿）](./Articles/Deck_original/Original_Submit.html)   
+[卡组分享（原创·投稿）](./Articles/Deck_Original/Original_Submit.html)   
 [卡组分享（搬运·翻译）](./Articles/Deck_Transport/Deck_Transport.html)  
 [本人视频作品整合](./Articles/Videos/Video_Collection.html)  
 [其他玩家视频整合](./Articles/Videos/Video_Collection_Others.html)  
