@@ -42,7 +42,7 @@
 ---
 
 ## 比赛流程
-- **共通规定**：[V2版本](https://www.bilibili.com/read/cv38391332/)（必读）。  
+- **共通规定**：[V2版本](../../Common_Rules.html)（必读）。  
 
 ---
 
