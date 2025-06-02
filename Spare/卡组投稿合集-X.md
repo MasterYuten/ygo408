@@ -6,7 +6,7 @@
 
  <center>
     <img src = ""
-         width = "%">
+         width = "70%">
     <br>
     投稿人：
     <br>
@@ -19,7 +19,7 @@
 
 <center>
     <img src = ""
-         width = "%">
+         width = "70%">
     <br>
     投稿人：
     <br>
@@ -32,7 +32,7 @@
 
 <center>
     <img src = ""
-         width = "%">
+         width = "70%">
     <br>
     投稿人：
     <br>
@@ -45,7 +45,7 @@
 
 <center>
     <img src = ""
-         width = "%">
+         width = "70%">
     <br>
     投稿人：
     <br>
@@ -58,7 +58,7 @@
 
 <center>
     <img src = ""
-         width = "%">
+         width = "70%">
     <br>
     投稿人：
     <br>
