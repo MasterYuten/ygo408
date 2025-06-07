@@ -1,0 +1,659 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>漫展宣传408环境心得+杂谈</title>
+</head>
+<body class='typora-export os-windows typora-export-show-outline typora-export-no-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#漫展宣传408环境心得+杂谈">漫展宣传408环境心得+杂谈</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#一408环境其实不完全是怀旧环境甚至可以说根本就不是怀旧环境更像是模组mod">一、408环境其实不完全是怀旧环境，甚至可以说，根本就不是“怀旧”环境，更像是模组（mod）</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#二408环境并非不思进取逃避只是一种游戏的选择">二、408环境并非“不思进取”“逃避”，只是一种游戏的选择</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#三谁都有玩游戏王的权利谁都不应当打牌多了就丧失人性说出各种某种客观条件欠佳就不配玩游戏王意思的话来打击他人直接或间接炫耀自身条件的优越">三、谁都有玩游戏王的权利，谁都不应当打牌多了就丧失人性，说出各种“（某种客观条件欠佳就）不配玩游戏王”意思的话来打击他人，直接或间接炫耀自身条件的优越</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#四自我批判">四、自我批判</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#五总结">五、总结</a></div><ul class="outline-children"></ul></li></ul></li></div></div><div id='write'  class=''><h1 id='漫展宣传408环境心得+杂谈'><span>漫展宣传408环境心得+杂谈</span></h1><p><a href='../Tittle-Tattle.html'><span>返回杂谈（仅供娱乐）</span></a><span>  </span></p><hr /><p><span>我其实没有去漫展的习惯，在2022年8月28日以前，去过的唯一一次漫展也只是为了去看游戏王港版代理名家数码的摊子，看看当时游戏王的摊子是怎样的，以及顺便打打牌罢了。</span><br/><span>现在想起来，买了门票就是进去里面打个牌，还真是有丶心大。</span><br/><span>这次我去“广州·OOPS！Summer！广州市中学生漫展”，身份不是一般的逛展群众，而是摊主了，不仅不卖任何东西，还自己贴钱去做408环境的宣传，也算够用爱发电了罢。  </span></p><center>
+    <img src = "./Img/图片1.png"
+         width = "50%">
+    <br>
+    特意设计的海报，文字由小E协助添加
+</center><p><a href='https://www.bilibili.com/video/BV1at4y1E7m2/'><span>【VLOG】游戏王408环境漫展传教记录</span></a><span>  </span></p><p><span>就结果而言，这次漫展的408环境试玩活动引导了10人加入全国Q群。</span><br/><span>试玩的人群中，除了有旁边比赛区的选手外，还有一些漫展举办方工作人员，甚至围观小学生。</span><br/><span>不知道他们加群后会在群里潜水还是活跃，也不知道他们会在群里待多长时间，但只要有人真心愿意进群，就是一个好的开始，更何况单日10人入群可以说是历来最多人加群的一天了。</span><br/><span>我稍微看了一下他们的资料，有显示年龄的Q号中，范围在17-22岁。</span><br/><span>换言之，年龄最大的是还没过生日的99后，或者笼统说是00后也不为过。</span><br/><span>408环境的原型存在于2006年4月，当时他们</span><strong><span>年龄最大的只有6岁，最小的只有1岁，结合当时经济、文化氛围判断，基本没有接触OCG环境的可能性</span></strong><span>。  </span></p><p><span>可能这个事实会与部分读者姥爷的认知有所冲突——为什么一个“怀旧”环境，竟然有这么多从未经历过当年环境的年轻人愿意去尝试，还喜欢玩、去常驻？</span><br/><span>难道不是以30岁以上的成年人为主要群体的吗？</span><br/><span>这个认知的槽点较多，以下我将连同上述问题与其他在宣传408环境时较常遇到的部分疑问/质疑分点讨论。</span><br/><strong><span>以下长篇大论警告！含开胃小瓜。</span></strong><span>  </span></p><center>
+    <img src = "./Img/图片2.png"
+         width = "50%">
+</center><h2 id='一408环境其实不完全是怀旧环境甚至可以说根本就不是怀旧环境更像是模组mod'><span>一、408环境其实不完全是怀旧环境，甚至可以说，根本就不是“怀旧”环境，更像是模组（mod）</span></h2><p><span>反正我也多次公开说过，也不怕再说一遍。</span><br/><span>我当初设立408环境，或者说命名、正式固定规则前，定位就是</span><strong><span>“假情怀，真传教”</span></strong><span>。  </span></p><p><span>当时（约2017年前后）是希望吸引一些对游戏王有了解的、与我同龄（25岁上下）的上班族入坑/回坑的，因此就采用了旧卡池、旧效果，但规则是最新的，以便能潜移默化地引导他们接触当时的“OCG环境游戏王OCG”</span><strong><span>（稍有修改，当时新大师规则不做人严格限制额外怪兽，因此当时是特别约定了融合怪兽能特殊召唤到主要怪兽区）</span></strong><span>。</span><br/><span>但这个策略是有一个缺陷的——随着时间的推移，我与同龄人们的年龄在增长，精力也更多集中在工作与家庭中，因此引导的成功率会越来越低，已经成功引导的玩家中完全退坑回归工作、家庭的比例也会越来越大。</span><br/><span>理论上，如果完全坚持“怀旧”环境只向同龄人宣传，随着玩家群体的衰老，这个环境最终将会“死去”。</span><br/><span>这个也将会是大多数主打“怀旧”的非官方游戏王赛制、群组不得不面对的危机。  </span></p><p><span>后来证明，“新规则+老卡池”这个决策还是比较机灵的，算是阴差阳错中给自己留了后路，只需要调整一下宣传方向，无需实质性更改规则细节，即可将推广重点面向全年龄的公众而非仅仅只开“养老院”。</span><br/><span>毕竟作为一个具有缓冲性质的“折中”赛制，或者准确来说是一个</span><strong><span>游戏同人模组</span></strong><span>，同时面向全年龄段的新老玩家以及纯圈外人，也是十分合理的。  </span></p><p><span>就现今的游戏王圈子民间发展形势以及我所能预料到的未来而言，宣传重点逐渐偏向00后、10后，不仅是对蓝海群体的发掘，更是时代的要求。当我理清楚这点后，我想起了这句名言警句：</span><br/><strong><span>一个新的科学真理取得胜利并不是通过让它的反对者们信服并看到真理的光明，而是通过这些反对者们最终死去，熟悉它的新一代成长起来。</span></strong><span>（A new scientific truth does not triumph by convincing its opponents and making them see the light, but rather because its opponents eventually die, and a new generation grows up that is familiar with it.）——马克斯·普朗克（Max Karl Ernst Ludwig Planck）。</span><br/><span>我固然知道本次讨论的内容并不涉及自然科学，更谈不上什么真理，但这句话中所蕴含的“</span><strong><span>新事物符合历史发展的必然趋势，反映了社会进步的基本要求，符合人民群众的根本利益和要求，得到人民群众的支持和拥护。因此，新事物必然战胜旧事物是宇宙间不可抗拒的规律</span></strong><span>”的原理，我是能理解的。  </span></p><p><span>不少的怀旧赛制爱好者/群组一直在宣传“适合遗老”“怀旧”“情怀”“回归当年”，在红海中互相争夺本来就逐渐减少的大龄青年玩家。</span><br/><span>当然他们并没有错，因为他们可能只是想在这不可逆转的时代浪潮中建立一个类似“下班后回家前抽个烟（</span><strong><span>吸烟有害健康！</span></strong><span>）”那样，可以暂时在艰难生活中稍微放松一下的“乐园”罢了，那么即使只能玩个几年，其实对于当事的玩家们来讲也挺满足的了。</span><br/><span>不是我王婆卖瓜，408环境是我个人视角来说对无回忆的年轻玩家在入坑方面最为友好的一个非官方赛制吧。  </span></p><p><span>其实00后、10后多起来也不失为一件好事，至少说明了408环境愿意传承的人还是有的，不至于因前一辈玩家的生老病死而在与其他非官方赛制（群组）的竞争中逐渐失去话语权，然后湮灭在历史的洪流中。</span><br/><span>如果你非得问我为什么自诩“情怀”“怀旧”，我只能说，这是我早期使用的一种宣传话术，而且在我停止使用这种话术后，被“同人模组”新话术引导进群的群友也会自发觉得“怀念”“有怀旧感”，因为老卡池、老限制卡表本身就具有强烈的“怀旧”</span><strong><span>色彩</span></strong><span>。</span><br/><span>所以这并不算我乱说，而是宣传侧重点的改动吧。  </span></p><center>
+    <img src = "./Img/图片3.png"
+         width = "70%">
+</center><h2 id='二408环境并非不思进取逃避只是一种游戏的选择'><span>二、408环境并非“不思进取”“逃避”，只是一种游戏的选择</span></h2><p><span>另一方面，我除了遇到“原教旨主义者”的不理解外，还体会过某些OCG环境玩家对“怀旧”环境的恶意，而且这种恶意并不是指我在锐评OCG环境后遭受的反击，而是指我单纯在网上合理宣传或在跟朋友在卡店玩着408环境的时候，有个OCG环境玩家突然</span><strong><span>无端</span></strong><span>回贴批判一番或上来企图指点。</span><br/><span>包括但不限于以下情景。</span><br/><span>当然我发出来并不是想大家一起批斗当事人（</span><strong><span>网暴违法，切勿以身试法</span></strong><span>），是想大家“</span><strong><span>择其不善者而改之</span></strong><span>”，仅此而已。  </span></p><ol start='' ><li><p><span>我与群管理Lof玩实卡时，隔壁桌有个玩家过来问“你们知道过早的埋葬是禁止卡吗”，我回答“我们（也）是OCG环境玩家”，那位玩家愣了一下才读懂意思离开。</span><br/><span>当然这个可能不是恶意，也许只是好心雷……科普罢了。  </span></p></li><li><p><span>一个本地Q群（群主是我）的玩家进了我的408环境本地微信群，然后空口大谈“做人要与时俱进”，最后说不过了就自己退微信群了，至今仍在Q群。</span><br/><span>滑稽的后话是，他和我在一家卡店的微信群里相遇（我比他先进群），卡店老板和一众大佬经常玩国外某知名怀旧环境。</span><br/><span>但自我进群后从未发现这个本地玩家再在群里作任何类似的锐评，不知道是不是与“</span><strong><span>老板和大佬们都是高罕英文玩家（暗示家境殷实），还是‘穷不与富斗’不乱说话的好</span></strong><span>”有关。（笑）  </span></p></li></ol><center>
+    <img src = "./Img/图片4.png"
+         width = "50%">
+</center><ol start='3' ><li><p><span>某个路人在我一个并没有抨击OCG环境的408环境实卡打牌视频下方大肆展示其对于非OCG环境的“云史官”以及说不过就装死不回复的一面，头像ID打码的话都是他ta说的。</span><br/><span>这个毕竟是对方打响的第一枪，我置顶还是没什么罪恶感的。（笑）</span></p></li></ol><center>
+    <img src = "./Img/图片5.png"
+         width = "70%">
+</center><ol start='4' ><li><p><span>这位更是重量级。某个TCG/LCG圈子的up对我发的一篇打印游戏王卡教程进行锐评，希望不是这个教程中的前言后记中的某些文字刺激到了他（文章已改动）。</span><br/><span>这个有点偏题了，但不算完全离题，放在下个标题中也许会更合适。</span><br/><span>他在评论区说“只是告诉我网页打印的方法”，结合“我觉得我也可以水一期专栏，或者视频了。用ps这种谁都能想到的笨方法，都能水个专栏，就这”这种态度和删掉截图中的网址这种做法，你信吗？</span><br/><span>我反正信了。（划掉）</span>
+<strong><span>（长图警告！）</span></strong></p></li></ol><center>
+    <img src = "./Img/图片6.png"
+         width = "50%">
+</center><center>
+    <img src = "./Img/图片7.png"
+         width = "50%">
+</center><center>
+    <img src = "./Img/图片8.png"
+         width = "80%">
+</center><p><span>这些只是我遇到的某些恶意中较为典中典的类型，不过总体而言，OCG环境大多数玩家还是比较有容人之度的。</span><br/><span>而随着KONAMI的不寒碜的新卡设计和营销卡表改订操作，特别是最近OCG的7月限制卡表改订和最近发售的某些新主题，OCG环境玩家对KONAMI吃相难看的商业运营操作的不满大幅增加，甚至有《七月表游戏王环境》的搞笑饼图——</span>
+<span>饼图中全是其他卡牌游戏，就是没有游戏王，这也在一定程度上反映了制作者和认同者对于近期游戏王环境恶化的不满情绪。  </span></p><p><span>那么重点就来了——本人推广个游戏王的同人赛制，好歹也是与游戏王这个IP关系密切，都能遇到不止一次批判，那么这种明显踩一捧N，甚至是明示各位游戏王玩家转型玩其他卡牌游戏的发言，不是应当受到更多、力度更大的批判的吗？</span><br/><span>比如“爱玩玩不玩滚”这类经典回复（即“举轻以明重”）。</span><br/><span>当然读者姥爷也可以以“发言的目的不一致”解释过去，但我建议可以多考虑一下，是真的因为“发言的目的不一致”因此对待态度也不一，还是发言者所玩的游戏/赛制身后的玩家群体基数不一进而影响大家表态的肆意或收敛，亦或者是其他更深层次的原因？</span><br/><span>但无论如何，408环境也好，其他非官方赛制/群组也罢，其实都是给玩家的一个选择而已，而且互相的关系也不是你死我活，大可以共存，至少做到“井水不犯河水”。</span><br/><span>有的玩家能容忍牌友去玩乃至在游戏王群组里面宣传友商的卡牌游戏，却对自家游戏的同人环境重拳出击，这到底算不算一种“窝里横，外面怂”呢？这确实值得思考。</span></p><h2 id='三谁都有玩游戏王的权利谁都不应当打牌多了就丧失人性说出各种某种客观条件欠佳就不配玩游戏王意思的话来打击他人直接或间接炫耀自身条件的优越'><span>三、谁都有玩游戏王的权利，谁都不应当打牌多了就丧失人性，说出各种“（某种客观条件欠佳就）不配玩游戏王”意思的话来打击他人，直接或间接炫耀自身条件的优越</span></h2><center>
+    <img src = "./Img/图片9.png"
+         width = "50%">
+</center><p><span>除了第二部分第4点外，我也遇到过一些令人大跌眼镜的“人上人”言论，基本的论点是“没钱不要玩游戏王”“不玩竞技不要入坑游戏王”等，实在脱离群众，令人震惊。</span><br/><span>可能你会觉得我在扯淡，怎么可能有这种逆天的言论？</span><br/><span>然而事实是真的不讲逻辑的，大家可以看看以下例子。</span><br/><span>还是那句话，我发出来并不是想大家一起批斗当事人（</span><strong><span>网暴违法，切勿以身试法</span></strong><span>），是想大家“</span><strong><span>择其不善者而改之”</span></strong><span>，仅此而已。</span><br/><strong><span>以下观点中的理论引用可能有偏颇，望谅</span></strong><span>。</span></p><ol start='' ><li><p><span>本地群一个牌友的发言，直接震撼我。</span><br/><span>由于太长，我只选出重点的一部分进行展示，马赛克头像就是那个震撼我的群友，黑块头像是另一个牌友，他也不认同马赛克牌友的话。</span><br/><span>图中为粤语，已翻译必要部分。</span><br/><span>我在此提前声明：</span><strong><span>我虽然不同意这位马赛克头像牌友的观点，但并不讨厌他，也很乐意继续与他交流</span></strong><span>。</span><br/><span>“买卖不成仁义在”，也许这也算是求同存异吧。</span><br/><strong><span>（长图警告！）</span></strong></p></li></ol><center>
+    <img src = "./Img/图片10.jpg"
+         width = "70%">
+</center><ol start='2' ><li><p><span>这个是我约3年前在一个“教人如何廉价打牌的视频”中的吐槽评论竟然这也能遇到“竞技玩家”的“批评”。</span><br/><span>看似很合理，但其实脱离群众，这样的理念确实不适合推广到公众领域。</span><br/><span>这位“竞技玩家”在我长篇大论驳斥其谬论后就不回复了。  </span></p></li></ol><center>
+    <img src = "./Img/图片11.png"
+         width = "80%">
+</center><ol start='3' ><li><p><span>这是我在逛知乎时看到的一个回复，也是上一点中我提到的“大佬引导新人”的信息来源。</span><br/><span>感谢互联网让我见识到了社会阶层的多样性，是我太穷了（悲）。  </span></p></li></ol><center>
+    <img src = "./Img/图片12.png"
+         width = "70%">
+</center><p><strong><span>圈内开团预警，前方高能！</span></strong></p><p><span>先说说经济方面。</span><br/><span>其实整体而言，多数游戏王玩家并不是什么富家子弟，学生党里面很多牌佬基本是节衣缩食，拿珍贵的零花钱来买卡的。</span><br/><span>即使是工薪阶层，也不过是抠出本来就不多的收入中的一部分，毕竟还是得吃饭的，如果是在外地打工，那可能还得考虑房租之类的支出。</span><br/><span>而现今的收入水平，别说疫情的这两年了，就算是疫情前经济还行的两年，月薪能到缴纳个税的水平（超过5000元/月，2018年10月1日起），已经比不少人要高的了。</span><br/><span>我相信部分读者姥爷甚至都不敢想象月入高达5000的生活。</span><br/><span>可能对某些玩家来说，一次性拿出2k左右的钱去投入在玩游戏王这类享受资料消费上其实很常见很“正常”，但对于某些想入坑，但收入其实未超个税免征点甚至说是家境很一般没多少零花钱的学生党来说，这种看似轻松随意的话，在他们眼里相当于直接开骂“没钱玩个屁游戏王”。</span><br/><span>即使只是如本部分第3点那般氪2k的时长限定在1年内，对于只是稍稍有兴趣还不知道会玩下去多久的一般人尤其是学生党而言，这也是一笔巨款了。</span><br/><span>我并不是说不能介绍入坑玩游戏王的方法中比较高成本的那种，</span><strong><span>只是将这种高成本的方法如此轻松随意地介绍，是会让大家误以为这已经是下限要求的。</span></strong><span></span><br/><strong><span>那达不到怎么办呢？只能选择不玩了</span></strong><span>。</span><br/><span>尤其是在8700万青眼白龙事件后，人民群众会更容易产生这种想法。</span><br/><span>这是客观存在的情况，同时也是我感到无奈却无法直接改变的状况，因为这不仅仅是游戏王这个小圈子的问题了。</span><br/><span>我所能做的，只是将这个问题直接指出来让各位读者姥爷意识到，以及在自己的群里尽力减轻这种思潮的影响。至于其他的群组、社交平台和现实生活，就看大家的了。</span></p><p><span>然后是一直都有争论的“竞技”相关话题，在此碍于篇幅，我只讨论“唯竞技论”——</span><br/><span>本文中的定义是：以比赛、竞技取胜（获得名次、荣誉等）作为玩游戏王（或其他活动）的唯一或主要目的，并一定程度蔑视不如此的个人的一种论调。</span><br/><span>别以为这个定义很夸张，可能不少读者姥爷还真的能遇上这类人。</span><br/><strong><span>对于严格要求自己的竞技玩家，我个人是表以崇高敬意的</span></strong><span>，且不会对ta有负面意见，毕竟</span><strong><span>自我要求严格是ta的自由</span></strong><span>。</span><br/><span>但无论竞技水平如何，</span><strong><span>粗暴地干涉他人</span></strong><span>玩游戏王的目的，说出“娱乐就是不想赢”“不想竞技就是你菜”“给别人提供游戏体验”这等</span><strong><span>社会达尔文主义</span></strong><span>到丧失人性的的话</span><strong><span>侮辱</span></strong><span>非竞技玩家，就是他们不对了。</span><br/><span>即使是比赛常客、竞技“大佬”，也是</span><strong><span>有才无德</span></strong><span>的存在。</span><br/><span>各位读者姥爷好好想想，换一个领域同一个逻辑，比如，“学霸侮辱一般学生笨”“有钱人侮辱普通人穷逼”“武术高手侮辱非专业健身者弱鸡”，难道不觉得这种情景下的处于强势一方的道德是有问题的吗？</span><br/><span>我在两三年前退出大学社团群前，就真的遇到这样唯竞技论的在读师弟甲，当时我只是在另一个师弟乙说最近打牌不开心时，劝他玩点娱乐（决斗），本意是希望乙能从另一个方面感受游戏王的魅力，没想到却遭到甲出言不逊。</span><br/><span>当时我是火大的，现在只感到可笑。</span><br/><span>不如我们构建一个场景：某竞技“大佬”以上文提及的方式侮辱另一个娱乐玩家，但该娱乐玩家恰好是武术实战大佬，于是娱乐玩家要求该竞技“大佬”与其进行一场武术体育比赛切磋武艺，并在竞技“大佬”以任何理由（包括不懂武术）拒绝时对竞技“大佬”进行身体羞辱，甚至做出痛失韩国市场的手势。</span><br/><span>难道这就是那些唯竞技论的玩家所希望遇到的情况吗？</span><br/><span>还是说，他们就是因为知道不会遇上这种情况，所以才放心单方面对他人做这种事？</span><br/><span>对于这方面，我还是能做点事的：</span><strong><span>我在此倡议各位玩家能互相尊重，即使是有唯竞技论的想法，也请不要说出来，“不是每个学武术的人都想打条金腰带，也有单纯下班了想运动一下增肌减脂的”</span></strong><span>——沃·兹基硕德。  </span></p><p><span>本部分用语可能太激进，攻击性比较强，请各位读者姥爷多包容。</span><br/><span>也许还是社会毒打才能教做人，他们在上班比较忙（如996、007等），精力也随着年龄的增长一年不如一年之后，才能深刻体会到当年到底是吃错了什么才说得出这类浑话罢！</span><br/><span>未完待续……  </span></p><h2 id='四自我批判'><span>四、自我批判</span></h2><p><span>以上说了这么多，纵观一下我自己吧。从04年开始打牌直到开始推广408环境的一段早期时间，说是受圈子氛围影响也好，说是自身社会经历尚浅幼稚也罢，也做过不少现在看起来简直不当人的反向宣传，简直就是黑历史，现在想起都想穿越回去给自己两耳光。  </span></p><ol start='' ><li><p><span>在宣传对象说没时间玩OCG环境时，我竟有脸说出“每天上撤硕的半小时去看新卡包的卡不就得了”。  </span></p></li><li><p><span>不只是在玩游戏王时，玩三国杀时也是，对非硬核玩家询问卡上明文文字的内容感到不耐烦，甚至还好意思去讽刺“卡上面明着写的就不要问了”。  </span></p></li><li><p><span>对群里问简单问题的群友抛出“去百度”这种屁话。  </span></p></li><li><p><span>以前管理学校社团的群时，公然规定不定期“枪毙”潜水员，大搞活跃玩家提纯。  </span></p></li></ol><p><span>……  </span></p><p><span>说不下去，太羞耻了，甚至可以说是把前面部分的话全部拿来骂我自己一遍都还有漏网的。</span><br/><span>望各位读者姥爷引以为戒，千万不要学我，做一些一粉顶十黑的事。</span><br/><span>这些做法，不把人赶跑都得偷笑了，还宣传，招黑倒有的是。</span><br/><strong><span>兴许有一部分游戏王的“小黑子”是被类似我这样的的人逼出来的吧</span></strong><span>。</span>
+<span>离开象牙塔进行社会实践是真的能改造一个人的，也只有多接触真实的社会，才能做到</span><strong><span>从群众中来，到群众中去</span></strong><span>，而不是站在由傲慢与偏见构成的空中楼阁中不接地气，抱着给游戏王宣传的想法但做的却是招黑的事。</span><br/><span>大家别骂了别骂了，我知道错了。</span><br/><strong><span>我愿意接受各位读者姥爷监督，各位读者姥爷大可在评论区中指出我的错误，我不会删评的</span></strong><span>。</span><br/><span>（↑本站无评论功能，为B站版本原话）</span></p><h2 id='五总结'><span>五、总结</span></h2><p><strong><span>总算是把憋在心里多年至今的话给讲出来了</span></strong><span>，后果我预料到，也做好觉悟了。</span><br/><span>我个人在这五部分中并不想特意去讲KONAMI治疗低血压的操作，因为你我都没有能力去直接改变。</span><br/><span>但我们能改变的，是对他人的行为和态度。</span><br/><span>其实说了这么多，我也只是想表达：如果我们调整好宣传时的行为和态度，那么游戏王的玩家（无论何种赛制，也无论是OCG、MD、DL还是即将推出的CD等）会不会就能够多一些呢？</span><br/><span>陪伴在我们身边打牌的牌佬，以及通过打牌能认识的朋友，会不会多一些呢？放下了无谓的争论后，大家能得到的快乐，是不是能多一些呢，鄙视链是不是能少一些呢？  </span></p><p><span>愿望是美好的，现实却仍需努力。</span><br/><span>希望本文能</span><strong><span>抛砖引玉</span></strong><span>，为各位读者姥爷提供宣传的思路，以及规避一些雷点。</span><br/><span>如果本文真能起到燎原之火的作用，促进了圈内宣传的发展，使得游戏王各种赛制的玩家多了起来，我即使是被千夫所指，也感到值了。  </span></p><p><span>2022年8月31日</span><br/><span>神之吹息  </span></p></div></div>
+
+<script>(function(){function e(e,n,i){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var t=e.target;t&&t!=this;t=t.parentNode)if(t.matches(n)){!1===i.call(t,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)}var t=document.body.parentElement,i=[],r=null,o=document.body.classList.contains("typora-export-collapse-outline");function a(){return t.scrollTop}e("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),u(),!1}),e("click",".outline-item",function(e){var t=this.querySelector(".outline-label");location.hash="#"+t.getAttribute("href"),o&&((t=this.closest(".outline-item-wrapper").classList).contains("outline-item-open")||t.add("outline-item-open"),d(),t.add("outline-item-active"))});function s(){var e=a();r=null;for(var t=0;t<i.length&&i[t][1]-e<60;t++)r=i[t]}function n(){c=setTimeout(function(){var n;i=[],n=a(),document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(e=>{var t=e.getAttribute("id");i.push([t,n+e.getBoundingClientRect().y])}),s(),u()},300)}var l,c,d=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},u=function(){if(r&&(d(),t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(r[0]):r[0])+'"]')))if(o){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var t,n=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");n;)n=(t=n).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")};window.addEventListener("scroll",function(e){l&&clearTimeout(l),l=setTimeout(function(){s(),u()},300)});window.addEventListener("resize",function(e){c&&clearTimeout(c),n()}),n()})();</script></body>
+</html>
