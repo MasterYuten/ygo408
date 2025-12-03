@@ -10,8 +10,8 @@
 
 *斜体*
 
-[链接1](../test/)
+[链接1](../../test/)
 
-[链接2](../test/README.md)
+[链接2](../../test/README.md)
 
 ![](https://img2.baidu.com/it/u=1569236157,3890546096&fm=253&app=138&f=JPEG?w=889&h=500)
