@@ -1,0 +1,630 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>从“怀旧”到“经典”：游戏王民间环境生态的叙事升级</title>
+</head>
+<body class='typora-export os-windows typora-export-show-outline typora-export-no-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#从怀旧到经典游戏王民间环境生态的叙事升级">从“怀旧”到“经典”：游戏王民间环境生态的叙事升级</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前言">前言</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#目录">目录</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#一开篇一场关于定义的战争">一、开篇：一场关于“定义”的战争</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#二厘清概念怀旧情怀与经典的本质区别">二、厘清概念：“怀旧/情怀”与“经典”的本质区别</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#三为什么要从怀旧情怀转向经典">三、为什么要从“怀旧/情怀”转向“经典”？</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#当前怀旧情怀标签的三大负面影响------戴帽容易摘帽难">当前“怀旧/情怀”标签的三大负面影响——戴帽容易摘帽难</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#经典叙事的核心价值------换一个词换一个世界">“经典”叙事的核心价值——换一个词，换一个世界</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#叙事转向的必要性------不转就真会被困在怀旧情怀的笼子里了">叙事转向的必要性——不转，就真会被困在“怀旧/情怀”的笼子里了</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#四如何潜移默化实现从怀旧情怀到经典的转化">四、如何潜移默化实现从“怀旧/情怀”到“经典”的转化？</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#话术重构统一口径最易落地">话术重构：统一口径，最易落地</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#内容重塑突出经典价值而非回忆情绪">内容重塑：突出“经典价值”，而非“回忆情绪”</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#生态展示打破中老年专属印象">生态展示：打破“中老年专属”印象</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#长期渗透心法不硬推靠展示+暗示">长期渗透心法：不硬推，靠展示+暗示</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#代际传承培育新生代经典玩家">代际传承：培育新生代经典玩家</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#五结语让民间环境成为这个时代的经典">五、结语：让民间环境成为这个时代的“经典”</a></div><ul class="outline-children"></ul></li></div></div><div id='write'  class=''><h1 id='从怀旧到经典游戏王民间环境生态的叙事升级'><span>从“怀旧”到“经典”：游戏王民间环境生态的叙事升级</span></h1><p><img src="0.png" referrerpolicy="no-referrer"></p><p><span>作者：神之吹息</span>
+<span>发表日期：2026年4月3日</span>
+<span>本文同时发表在“游戏王多元环境联合会”B站账号：</span><a href='https://www.bilibili.com/opus/1186906210770616340' target='_blank' class='url'>https://www.bilibili.com/opus/1186906210770616340</a></p><p><a href='../Tittle-Tattle.html'><span>返回杂谈（仅供娱乐）</span></a></p><hr /><h1 id='前言'><span>前言</span></h1><p><strong><span>本文/视频参照CC BY（署名）协议开放转载，敬请保留原链接与作者信息噢~感谢传播！支持知识开放、协作与共享。</span></strong></p><p><span>欢迎各位读者姥爷看完后理性讨论，也欢迎I人读者姥爷私信投稿。</span><strong><span>私信、私聊投稿视为同意本人在展示投稿内容的同时展示头像及ID等信息实名收录到本文附加部分或新开设的包含“投稿-回应”类型内容的文章、视频</span></strong><span>。如有深度理解，也欢迎撰写长文公开讨论。</span></p><p><span>本文基于自2017年起九年游戏王社群（主要是408环境线上、线下社群）运营的</span><strong><span>真实经验</span></strong><span>、在各游戏王民间环境社群内交流</span><strong><span>所见所闻</span></strong><span>，及期间的</span><strong><span>个人感想</span></strong><span>。</span></p><p><span>九年民间环境运营，我目睹了一群人对民间环境的热爱，如何被身上的“</span><strong><span>怀旧</span></strong><span>”“</span><strong><span>遗老</span></strong><span>”等标签困住。为何千年棋牌能成</span><strong><span>经典</span></strong><span>，而我们却被嘲“遗老”？这不是游戏的问题，是</span><strong><span>叙事</span></strong><span>的问题。本文尝试作一次认知升级：</span><strong><span>从怀旧到经典，从回忆到传承</span></strong><span>。带你看清如何</span><strong><span>撕掉偏见标签</span></strong><span>，把我们守护的民间环境，活成能</span><strong><span>跨代传承的经典</span></strong><span>。</span></p><p><span>同时欢迎各位游戏王圈外的读者姥爷参照本文，将对应的经验抽象总结为可以</span><strong><span>跨领域复用</span></strong><span>的广泛经验。</span></p><p><span>欢迎</span><strong><span>点赞、收藏、转发、评论</span></strong><span>。</span></p><h1 id='目录'><span>目录</span></h1><blockquote><p><span>一、开篇：一场关于“定义”的战争</span>
+<span>二、厘清概念——“怀旧/情怀”与“经典”的本质区别</span>
+<span>三、为什么要从“怀旧/情怀”转向“经典”？</span>
+<span>四、如何潜移默化实现从“怀旧/情怀”到“经典”的转化？</span>
+<span>五、结语：让民间环境成为这个时代的“经典”</span></p></blockquote><h1 id='一开篇一场关于定义的战争'><span>一、开篇：一场关于“定义”的战争</span></h1><p><img src="1.jpg" referrerpolicy="no-referrer"></p><p><span>不知各位读者姥爷有没有发现一个奇怪的现象？围棋、象棋、麻将，流传了上千年，从来没人说它们是“怀旧”“遗老”。年轻人学围棋，没人问他“你是不是在怀念古代”。可轮到游戏王的民间环境（比如408环境），画风就变了：“旧环境”“老卡池”“遗老”。为什么？难道</span><strong><span>规则稳定、策略深邃</span></strong><span>的408环境，比千变万化的围棋更“过时”？</span></p><p><span>当然不是。问题不在玩法，而在标签。“怀旧”这个词，像一顶</span><strong><span>太小太旧的帽子</span></strong><span>，硬扣在一个本可以很“经典”的东西上。它</span><strong><span>劝退新人</span></strong><span>——年轻人听到“怀旧”，第一反应是“与我无关”。它也被某些人当武器——“</span><strong><span>你们就是一群遗老自嗨</span></strong><span>”。而标签的背后，是</span><strong><span>叙事权的缺失</span></strong><span>。</span></p><p><span>我们并非只能守着 “怀旧” 的定位，更不该被不合理的标签束缚。所以，得做一件事：把“怀旧”换成“</span><strong><span>经典</span></strong><span>”。不是玩文字游戏，而是为民间环境争取它</span><strong><span>本该有的认知地位</span></strong><span>——像传统棋牌一样，</span><strong><span>跨越时间、代际与偏见，成为真正可传承的经典</span></strong><span>。</span></p><p><span>这，就是本人想与各位读者姥爷一起完成的</span><strong><span>认知升级</span></strong><span>：跳出 “怀旧” 的狭隘定义，转向 “经典” 的</span><strong><span>正向叙事</span></strong><span>，重塑民间环境的公众认知与生态自信。让 408环境等优质民间环境，像传统棋牌一样，凭借</span><strong><span>稳定规则、深邃策略</span></strong><span>，成为</span><strong><span>跨越时代、历久弥新、被全年龄段认可</span></strong><span>的经典玩法。</span></p><hr /><h1 id='二厘清概念怀旧情怀与经典的本质区别'><span>二、厘清概念：“怀旧/情怀”与“经典”的本质区别</span></h1><p><img src="2.jpg" referrerpolicy="no-referrer"></p><p><span>以下词义均来源于</span><strong><span>《现代汉语词典》（第5版，2005年）</span></strong><span>。</span></p><blockquote><p><strong><span>怀旧</span></strong><span>：[动]</span><strong><span>怀念往事</span></strong><span>和旧日有来往的人。</span>
+<strong><span>情怀</span></strong><span>：[名]含有某种</span><strong><span>感情</span></strong><span>的</span><strong><span>心境</span></strong><span>。</span>
+<strong><span>经典</span></strong><span>：①：[名]指传统的具有权威性的著作。②：[名]泛指各宗教宣扬教义的根本性著作。③：[形]著作具有权威性的。</span><strong><span>④：[形]事物具有典型性而影响较大的。</span></strong></p></blockquote><p><span>由此可见，“怀旧”的核心在于</span><strong><span>依附个人记忆与过去情绪，被动、向后看</span></strong><span>，用于民间环境标签，易被污名化为 “老旧”，难以吸引新生代，无法支撑长期生态。而“情怀”，主观情感偏好，是</span><strong><span>起步初心</span></strong><span>，但缺乏客观价值标准，不能作为环境可持续发展的核心支柱，易陷入</span><strong><span>道德化、封闭化</span></strong><span>。共通点是</span><strong><span>依赖个人记忆、情绪投射，时间属性强</span></strong><span>（“过去式”），易被污名化为“过时”“遗老”。即便这</span><strong><span>不等于说游戏不好</span></strong><span>，但依然会</span><strong><span>劝退新人、限制生态想象</span></strong><span>。</span></p><p><span>而“经典”则明确指向规则稳定、策略深邃，能</span><strong><span>跨代传承、具备独立玩法价值</span></strong><span>，且</span><strong><span>不受时间侵蚀</span></strong><span>的方向——不仅具有当下价值，而且完全有望在未来可持续，生生不息。经典不靠回忆续命，而靠当下好玩、未来可持续。现有的多个民间环境已具备经典的核心特质，只是局限于“怀旧”、未被正确叙事，以致</span><strong><span>在第一印象上就吃了大亏</span></strong><span>，需要重新定义与表达。</span></p><p><span>当然，本人</span><strong><span>不否定“情怀”，但拒绝“只靠情怀”</span></strong><span>。民间环境不仅仅是“老玩家的记忆”，而是“</span><strong><span>稳定规则下的无限博弈</span></strong><span>”——这正符合经典的词义。</span><strong><span>情怀是初心，不是标签；经典是目标，底色是价值</span></strong><span>。</span></p><hr /><h1 id='三为什么要从怀旧情怀转向经典'><span>三、为什么要从“怀旧/情怀”转向“经典”？</span></h1><p><img src="3.jpg" referrerpolicy="no-referrer"></p><p><span>说到底，一个标签决定一个生态的命运。</span></p><h2 id='当前怀旧情怀标签的三大负面影响------戴帽容易摘帽难'><span>当前“怀旧/情怀”标签的三大负面影响——戴帽容易摘帽难</span></h2><p><span>首先，它</span><strong><span>天然劝退年轻人</span></strong><span>。你想想，一个00后听到“怀旧/情怀环境”，第一反应是什么？“那是老一辈的东西，</span><strong><span>跟我没关系</span></strong><span>。”——还没了解玩法，人已经被标签挡在门外。本人在大学母校牌佬群里宣传408环境时，一位师弟的回答点醒了本人——“</span><strong><span>每个人的情怀都是不一样的</span></strong><span>”。即，我们以为情怀是共鸣，对方却觉得是绑架。如果真心希望广大牌佬感受民间环境的乐趣，却只宣传“怀旧/情怀”，何尝不是一种无意识的“</span><strong><span>以己度人</span></strong><span>”？生态没了</span><strong><span>新鲜血液</span></strong><span>，就只能</span><strong><span>在一群老面孔里慢慢萎缩</span></strong><span>。</span></p><p><span>其次，它</span><strong><span>给了某些人现成的攻击武器</span></strong><span>。</span><strong><span>部分优越感牌佬</span></strong><span>的“遗老”“守旧”“小圈子自嗨”等词为什么能张口就来？因为“怀旧/情怀”自己就把软肋露出来了。他们不需要了解民间环境的策略深度，只要甩出“怀旧/情怀”甚至“遗老”两个字，就能让民间环境玩家们百口莫辩——“</span><strong><span>这可是你们自己承认的，我可从没有乱编乱扣帽子哦~</span></strong><span>”</span></p><p><span>更致命的是，它</span><strong><span>限制了生态的想象力</span></strong><span>。“怀旧”是向后的，让人总在回忆里打转；“经典”是向前的，让人期待未来还能玩出什么新花样。一个</span><strong><span>总被困在缅怀过去</span></strong><span>的环境，社群里面的玩家自己都在营造出只想沉醉于</span><strong><span>以过去之虚像消极避世的“幻术”</span></strong><span>氛围中，而不去表达民间环境</span><strong><span>自身的独特魅力</span></strong><span>，那还怎么吸引想往前看的玩家？</span></p><h2 id='经典叙事的核心价值------换一个词换一个世界'><span>“经典”叙事的核心价值——换一个词，换一个世界</span></h2><p><span>“经典”就不一样了。它意味着“</span><strong><span>值得一直玩下去</span></strong><span>”——年轻人听到“经典”，不会觉得与自己无关，反而会好奇“这东西能成为经典，一定有点东西”，从而减少忽视、抵触，从源头上</span><strong><span>增加民间环境自我展示的机会</span></strong><span>。</span></p><p><span>它能帮我们</span><strong><span>建立正面的身份认同</span></strong><span>。从“我是怀旧玩家”到“我是</span><strong><span>经典环境的守护者</span></strong><span>”，心态完全不同——前者带着点</span><strong><span>自嘲</span></strong><span>，后者满是</span><strong><span>自信</span></strong><span>。还能让我们和</span><strong><span>围棋、象棋、麻将</span></strong><span>这些真正的经典站在一起。没有人会问“你为什么还在下围棋”，因为</span><strong><span>经典不需要解释</span></strong><span>。我们的环境，也该有这样的底气。</span></p><p><span>更重要的是，它能让那些</span><strong><span>攻击话语瞬间失效</span></strong><span>。当你的定位是“经典”，对方再喊“遗老”，就像对着珠穆朗玛峰喊“小土坡”——可笑的是他，不是你。</span></p><p><span>我们民间环境，也要有自己的“</span><strong><span>道路自信、理论自信、制度自信、文化自信</span></strong><span>”！即便只玩民间环境，那也并非</span><strong><span>不得不安于旧日的无奈或自嘲</span></strong><span>，而是</span><strong><span>对其传世魅力认同的热爱与坚持</span></strong><span>。</span></p><h2 id='叙事转向的必要性------不转就真会被困在怀旧情怀的笼子里了'><span>叙事转向的必要性——不转，就真会被困在“怀旧/情怀”的笼子里了</span></h2><p><span>年轻玩家不会主动走进“怀旧”的门，但会</span><strong><span>主动探索“经典”的世界</span></strong><span>。这不是文字游戏，这是认知门槛。跨不过去，生态就会在“小圈子自嗨”里慢慢沉寂；跨过去了，才有代代相传的可能。</span></p><p><span>仔细想想，不止传统棋牌，中国四大名著、古典音乐、印在课本上的历史绘画雕塑建筑等中外艺术创造，哪个是凭借“怀旧/情怀”立于现世？依靠的还不是其丰厚的</span><strong><span>价值底蕴</span></strong><span>，令人回味无穷、意犹未尽、常品常新的</span><strong><span>精神深度</span></strong><span>？</span></p><p><span>更何况，本人在408环境的各种宣传资料中，已尽可能放弃“情怀”“怀旧”“老”“旧”等，更换为“经典”“传承”等词汇，宣传效果却并未削弱。大量真正的当年老玩家依然感到408环境</span><strong><span>契合其情怀</span></strong><span>，未有冒犯。也就是说，叙事转向经典后，不仅</span><strong><span>“情怀”能被完美包容</span></strong><span>，而且</span><strong><span>丝毫不影响展示面对未来的自信</span></strong><span>——</span><strong><span>表达正面化、信息量增加</span></strong><span>，岂不美哉？</span></p><p><span>所以，换标签不是玩概念，是</span><strong><span>救命</span></strong><span>。</span></p><hr /><h1 id='四如何潜移默化实现从怀旧情怀到经典的转化'><span>四、如何潜移默化实现从“怀旧/情怀”到“经典”的转化？</span></h1><p><img src="4.jpg" referrerpolicy="no-referrer"></p><p><strong><span>核心原则</span></strong><span>：不争论、不纠正、不硬推，用“润物细无声”的方式，让玩家主动认可“这是经典”。</span></p><h2 id='话术重构统一口径最易落地'><span>话术重构：统一口径，最易落地</span></h2><p><span>从自身做起，所有</span><strong><span>宣传、群聊、比赛文案</span></strong><span>统一替换：</span></p><ul><li><p><span>“怀旧/情怀环境” → “经典环境”。</span></p></li><li><p><span>“老卡池” “旧环境”→ “经典卡池”“民间环境”。</span></p></li><li><p><span>“情怀玩家” “遗老” → “资深玩家”“传承玩家”。</span></p></li></ul><p><strong><span>规避词（不强求他人）</span></strong><span>：不再主动使用“怀旧、老旧、遗老”等</span><strong><span>自我矮化</span></strong><span>词汇。</span></p><p><strong><span>宣传文案抛砖引玉</span></strong><span>：</span></p><blockquote><p><span>408环境规则省流版</span>
+<span>▷ 采用大师规则2020（不适用额外怪兽区）</span>
+<span>▷ 改订前效果+最新裁定</span>
+<span>▷ 传承自2006年3月限制卡表+第四期卡池</span>
+<span>*保留经典策略框架，同时规避旧规则复杂度</span></p></blockquote><h2 id='内容重塑突出经典价值而非回忆情绪'><span>内容重塑：突出“经典价值”，而非“回忆情绪”</span></h2><p><strong><span>强调策略深度</span></strong><span>：多产出卡组思路、对局逻辑、环境combo（组合技）内容，像围棋讲定式一样讲民间环境的博弈。</span></p><p><strong><span>展示代际活力</span></strong><span>：多发年轻玩家的对局视频、访谈，让“00后、10后也爱经典”成为可见事实。</span></p><p><strong><span>价值锚定</span></strong><span>：反复强调平衡性、纯粹性——“无丧病超模卡，媲美甚至超越OCG环境的操作考验”。本人在大学母校牌佬群举办比赛的场外推广活动中，给当时的OCG环境牌佬参赛者轻度体验了408环境的预组卡组，部分体验、围观牌佬甚至兴奋到高呼“这不比OCG环境好玩多了？”（笑）</span></p><p><span>如有条件，可以统计</span><strong><span>玩家年龄分布、比赛参与人数、卡组多样性</span></strong><span>，用数据证伪“只有遗老”。</span></p><h2 id='生态展示打破中老年专属印象'><span>生态展示：打破“中老年专属”印象</span></h2><p><strong><span>活动分享</span></strong><span>：多放</span><strong><span>年轻人日常打牌、参赛</span></strong><span>的照片、战报信息。同时欢迎观看本人与母校在校师弟们的408环境决斗视频。（笑）</span></p><p><strong><span>弱化资历</span></strong><span>：不说“老玩家”，只说“某民间环境玩家”。</span></p><p><strong><span>日常渗透</span></strong><span>：偶尔提一句“最近好多学生党入坑，说这环境经典”。</span></p><h2 id='长期渗透心法不硬推靠展示+暗示'><span>长期渗透心法：不硬推，靠展示+暗示</span></h2><p><strong><span>不争辩</span></strong><span>：别人说“怀旧”，不反驳，只用事实回击——发年轻玩家数据、发精彩对局。</span></p><p><strong><span>每提必带“经典”</span></strong><span>：形成语言肌肉记忆，不突兀的情况下多说“经典”。</span></p><p><strong><span>借棋牌背书</span></strong><span>：偶尔类比但不说教——“围棋没人说怀旧，经典就是经典”。</span></p><h2 id='代际传承培育新生代经典玩家'><span>代际传承：培育新生代经典玩家</span></h2><p><span>办</span><strong><span>新人体验赛、教学局</span></strong><span>。本人在每年7-8月毕业季，会举办408环境线上赛“</span><strong><span>毕业杯</span></strong><span>”，借用纯预组卡组固定构筑的比赛，大幅降低新人体验、参与比赛的成本，以便进一步转化长期入坑。</span></p><p><span>推“</span><strong><span>新星战报</span></strong><span>”专栏，</span><strong><span>让年轻人当主角</span></strong><span>。本人长期在自己408环境线下比赛战报中强调初次参赛、外地玩家数的同时，一并列出“初中生”“高中毕业生”等年轻玩家，正是在落地本方案。</span></p><p><span>建可持续的</span><strong><span>教学-比赛-社群</span></strong><span>链路。本人在B站发布多个教学视频文章、不定期举办比赛（包括新生杯）、维护千人线上社群，为408环境玩家们提供更好的一站式入坑流程和长期打牌氛围、基建。</span></p><hr /><h1 id='五结语让民间环境成为这个时代的经典'><span>五、结语：让民间环境成为这个时代的“经典”</span></h1><p><img src="5.jpg" referrerpolicy="no-referrer"></p><p><span>经典从来不是天生的。围棋下了四千年，不是靠“老祖宗传下来的”这几个字撑着，而是一代又一代人走进去，发现它</span><strong><span>好玩、耐玩、值得一直玩下去</span></strong><span>。</span></p><p><span>我们的民间环境也一样。408（及SP群改版）、506、2011探索者、1103等环境，它们不缺</span><strong><span>策略深度</span></strong><span>，不缺</span><strong><span>平衡性</span></strong><span>，不缺</span><strong><span>愿意投入的玩家</span></strong><span>。缺的只是一次</span><strong><span>认知上的正名</span></strong><span>——从“怀旧”到“经典”，从“回忆”到“传承”。这不是文字游戏。这是</span><strong><span>为热爱争取它本该有的位置</span></strong><span>。</span></p><p><span>从今天起，</span><strong><span>本人建议规避自称“怀旧”，开始自称“经典”</span></strong><span>。用行动、用内容、用带给大家的笑容，重新定义我们热爱的东西。</span></p><p><strong><span>怀旧是向后看，经典是向前走。我们选择向前</span></strong><span>。愿我们的环境，像传统棋牌一样，</span><strong><span>跨越时间、代际与偏见</span></strong><span>，成为真正可传承的经典。毕竟</span><strong><span>情怀时间长了就没了</span></strong><span>，而</span><strong><span>经典足以穿越时空，进行跨时代的对话</span></strong><span>。</span></p></div></div>
+
+<script>(function(){function e(e,n,i){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var t=e.target;t&&t!=this;t=t.parentNode)if(t.matches(n)){!1===i.call(t,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)}var t=document.body.parentElement,i=[],r=null,o=document.body.classList.contains("typora-export-collapse-outline");function a(){return t.scrollTop}e("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),u(),!1}),e("click",".outline-item",function(e){var t=this.querySelector(".outline-label");location.hash="#"+t.getAttribute("href"),o&&((t=this.closest(".outline-item-wrapper").classList).contains("outline-item-open")||t.add("outline-item-open"),d(),t.add("outline-item-active"))});function s(){var e=a();r=null;for(var t=0;t<i.length&&i[t][1]-e<60;t++)r=i[t]}function n(){c=setTimeout(function(){var n;i=[],n=a(),document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(e=>{var t=e.getAttribute("id");i.push([t,n+e.getBoundingClientRect().y])}),s(),u()},300)}var l,c,d=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},u=function(){if(r&&(d(),t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(r[0]):r[0])+'"]')))if(o){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var t,n=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");n;)n=(t=n).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")};window.addEventListener("scroll",function(e){l&&clearTimeout(l),l=setTimeout(function(){s(),u()},300)});window.addEventListener("resize",function(e){c&&clearTimeout(c),n()}),n()})();</script></body>
+</html>
