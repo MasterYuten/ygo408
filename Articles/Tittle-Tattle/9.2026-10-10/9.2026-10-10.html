@@ -1,0 +1,625 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>从0开始的小众兴趣圈线下群创建运营指南</title>
+</head>
+<body class='typora-export os-windows typora-export-show-outline typora-export-no-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#从0开始的小众兴趣圈线下群创建运营指南------以游戏王民间环境线下约牌为例打破社群组建的信息壁垒">从0开始的小众兴趣圈线下群创建运营指南——以游戏王民间环境线下约牌为例，打破社群组建的信息壁垒</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前言致热爱与同好线下交流的你"><strong>前言：致热爱与同好线下交流的你</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#本文的定位"><strong>本文的定位</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#这是一份行动手册而不是一套教条"><strong>这是一份行动手册，而不是一套教条</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#这是一份建设者的参考而不是爱好者资格证"><strong>这是一份建设者的参考，而不是爱好者资格证</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#这是一份关于如何做事的指南也是一份关于如何看待环境中的人际关系的提醒"><strong>这是一份关于“如何做事”的指南，也是一份关于“如何看待环境中的人际关系”的提醒</strong></a></div><ul class="outline-children"></ul></li></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#目录"><strong>目录</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#一适用群体谁能从本文中得到更多收获"><strong>一、适用群体：谁能从本文中得到更多收获？</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#情况一一个人都没有但想尝试线下实卡"><strong>情况一：一个人都没有，但想尝试线下实卡</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#情况二有几位线上认识的同城牌友但从未约过线下"><strong>情况二：有几位线上认识的同城牌友，但从未约过线下</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#情况三已经有少数熟人约牌但没有固定社群"><strong>情况三：已经有少数熟人约牌，但没有固定社群</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#情况四群已经建了但活跃度不高"><strong>情况四：群已经建了，但活跃度不高</strong></a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#二前期调查梭哈是一种智慧一开始别乱来"><strong>二、前期调查：梭哈是一种智慧，一开始别乱来</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1精准存量排查从线上群锁定同城牌佬"><strong>1、精准存量排查：从线上群锁定同城牌佬</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2公域预热测试用内容吸引潜在同好"><strong>2、公域预热测试：用内容吸引潜在同好</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#3本地生态初勘了解场地与现有圈子"><strong>3、本地生态初勘：了解场地与现有圈子</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#4不要急着建群稳步推进才是硬道理"><strong>4、不要急着建群：稳步推进才是硬道理</strong></a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#三常用软件选择工欲善其事必先利其器"><strong>三、常用软件选择：工欲善其事，必先利其器</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#为什么选qq群当主阵地"><strong>为什么选QQ群当主阵地？</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#建群后的第一步把地基打好"><strong>建群后的第一步：把“地基”打好</strong></a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#四轻量试运行千里之行始于足下"><strong>四、轻量试运行：千里之行，始于足下</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1第一次约牌目标不是办比赛是聚起来"><strong>1、第一次约牌：目标不是办比赛，是聚起来</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2没人回应正常别慌"><strong>2、没人回应：正常，别慌</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#3持续约牌别只靠你一个人"><strong>3、持续约牌：别只靠你一个人</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#4从约牌到小比赛等稳定了再说"><strong>4、从约牌到小比赛：等稳定了再说</strong></a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#五为新血作准备让新人也能轻松加入"><strong>五、为新血作准备：让新人也能轻松加入</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1公共预组是什么"><strong>1、公共预组是什么？</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2预组怎么做两种方案"><strong>2、预组怎么做：两种方案</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#方案一白条打印版成本最低"><strong>方案一：白条/打印版（成本最低）</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#方案二低价实卡版体验最好"><strong>方案二：低价实卡版（体验最好）</strong></a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#3预组怎么选"><strong>3、预组怎么选？</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#4预组怎么管别让它变成公地悲剧"><strong>4、预组怎么管：别让它变成“公地悲剧”</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#5还可以准备什么"><strong>5、还可以准备什么</strong></a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#六分享经验有必要告诉你一些人生的经验"><strong>六、分享经验：有必要告诉你一些，人生的经验</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1约局固定+灵活"><strong>1、约局：固定+灵活</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2怎么让群友自己发起约牌"><strong>2、怎么让群友自己发起约牌</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#3氛围平等开放"><strong>3、氛围：平等、开放</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#4冷场了怎么办"><strong>4、冷场了怎么办</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#5出现争议怎么办"><strong>5、出现争议怎么办</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#6玩法保持新鲜感"><strong>6、玩法：保持新鲜感</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#7口碑让更多人知道"><strong>7、口碑：让更多人知道</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#8万一有人故意搞事怎么办">8、万一有人故意搞事怎么办</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#9与其他社群的关系开放但保持独立"><strong>9、与其他社群的关系：开放，但保持独立</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#10参考已有的社群运营准则"><strong>10、参考已有的社群运营准则</strong></a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#七进阶方向从本地约牌群到生态节点"><strong>七、进阶方向：从本地约牌群到生态节点</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1跨城联动和周边城市的同好交流"><strong>1、跨城联动：和周边城市的同好交流</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2成为本地生态的一个节点"><strong>2、成为本地生态的一个节点</strong></a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#八特别篇县城与熟人社会有何不同"><strong>八、特别篇：县城与熟人社会，有何不同</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1先认清人少店少圈子紧"><strong>1、先认清：人少、店少、圈子紧</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2先别急着建群先约牌融入"><strong>2、先别急着建群：先约牌融入</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#3合作比独立更实际"><strong>3、合作比独立更实际</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#4用熟人网络别只靠公域"><strong>4、用熟人网络，别只靠公域</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#5场地灵活别追求专业"><strong>5、场地灵活，别追求专业</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#6线上补足线下保持日常"><strong>6、线上补足线下，保持日常</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#7别假借用脚投票逼人"><strong>7、别假借“用脚投票”逼人</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#8组织者要有来有往量力而行别被人情绑架"><strong>8、组织者要有来有往，量力而行，别被人情绑架</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#9守住底线尊重自由选择"><strong>9、守住底线，尊重自由选择</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#10人情与规则并重"><strong>10、人情与规则并重</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#11跨城联动量力而行"><strong>11、跨城联动量力而行</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#12接受小圈子现实不强求多中心"><strong>12、接受小圈子现实，不强求多中心</strong></a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#附一些关于城市陌生人社会人际环境的提醒选读"><strong>附：一些关于城市陌生人社会人际环境的提醒（选读）</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#结语从约牌开始走到哪算哪"><strong>结语：从约牌开始，走到哪算哪</strong></a></div><ul class="outline-children"></ul></li></div></div><div id='write'  class=''><h1 id='从0开始的小众兴趣圈线下群创建运营指南------以游戏王民间环境线下约牌为例打破社群组建的信息壁垒'><span>从0开始的小众兴趣圈线下群创建运营指南——以游戏王民间环境线下约牌为例，打破社群组建的信息壁垒</span></h1><p><img src="./0.png" referrerpolicy="no-referrer"></p><p><strong><span>本文/视频参照CC BY（署名）协议开放转载，敬请保留原链接与作者信息噢~感谢传播！支持知识开放、协作与共享。</span></strong></p><p><span>作者：神之吹息</span></p><p><span>版本：V1（初版）</span></p><p><span>首次发表日期：2026年10月10日</span></p><p><span>最后修改日期：2026年10月8日</span></p><p><a href='../Tittle-Tattle.html'><span>返回杂谈（仅供娱乐）</span></a></p><hr /><h1 id='前言致热爱与同好线下交流的你'><strong><span>前言：致热爱与同好线下交流的你</span></strong></h1><p><span>本文面向想要从零开始组织线下游戏王民间环境活动、但不确定从何入手的牌佬。</span></p><p><span>如果你正在阅读这篇文章，大概率属于以下几种情况之一：</span></p><ul><li><p><span>你在线上群里找到了同好，但发现同城牌佬寥寥无几，更不知道如何把他们</span><strong><span>聚到一起</span></strong><span>。</span></p></li><li><p><span>你所在的城市明明有不少牌佬，却始终没有一个</span><strong><span>稳定</span></strong><span>的民间环境线下约牌组织。</span></p></li><li><p><span>你加入过一些本地群，但感觉</span><strong><span>氛围被固定的小圈子主导</span></strong><span>，新人很难融入，或者被各种“</span><strong><span>人情</span></strong><span>”绑住。</span></p></li><li><p><span>你只是想在自己所在的城市，</span><strong><span>找几个同好</span></strong><span>，安安静静地打几局民间环境的牌。</span></p></li></ul><p><span>如果你有以上任何一种情况，这篇文章就是为你写的。</span></p><p><span>另外，本文虽以游戏王民间环境为例，但其中的</span><strong><span>思路</span></strong><span>，对</span><strong><span>其他小众兴趣领域</span></strong><span>的线下组织也有一定参考价值。</span></p><p><span>欢迎各位读者姥爷看完后理性讨论，也欢迎I人读者姥爷私信投稿。</span><strong><span>私信、私聊投稿视为同意本人在展示投稿内容的同时展示头像及ID等信息实名收录到本文附加部分或新开设的包含“投稿-回应”类型内容的文章、视频</span></strong><span>。如有深度理解，也欢迎</span><strong><span>撰写长文公开对话、讨论</span></strong><span>。</span></p><h2 id='本文的定位'><strong><span>本文的定位</span></strong></h2><h3 id='这是一份行动手册而不是一套教条'><strong><span>这是一份行动手册，而不是一套教条</span></strong></h3><p><span>以下内容中提到的各种做法，都是</span><strong><span>参考建议</span></strong><span>。你的</span><strong><span>城市规模、已有的牌佬基础、可用的场地资源、你自己的时间和精力</span></strong><span>，都会影响具体怎么操作。</span></p><p><span>你可以</span><strong><span>根据实际情况来调整</span></strong><span>，有些步骤可能不需要，有些步骤可能需要做得更细。</span></p><h3 id='这是一份建设者的参考而不是爱好者资格证'><strong><span>这是一份建设者的参考，而不是爱好者资格证</span></strong></h3><p><span>本文不会暗示“组织线下活动是唯一正确的玩法”，也不会假设“不组织的人就不够热爱这个环境”。有些牌佬满足于线上打牌，有些牌佬觉得只跟极少数朋友决斗也很开心，这都完全没有问题。</span></p><p><span>本文不负责说服你“应该建群”，只是为那些</span><strong><span>已经决定尝试</span></strong><span>的人提供一个可以参照的起点。</span></p><h3 id='这是一份关于如何做事的指南也是一份关于如何看待环境中的人际关系的提醒'><strong><span>这是一份关于“如何做事”的指南，也是一份关于“如何看待环境中的人际关系”的提醒</span></strong></h3><p><span>现行的民间环境各有各的线上群，但线下活动往往集中在</span><strong><span>少数城市、少数人</span></strong><span>手中。</span></p><p><span>部分牌佬遇到的情况是：找不到同城局；或者找到了，但发现</span><strong><span>圈子封闭、人情绑定严重</span></strong><span>，参与门槛不在牌技上，而在“</span><strong><span>你是谁的人</span></strong><span>”。这种信息差和圈子壁垒，让一些本可以打牌的人，最终放弃了线下。</span></p><p><span>本文试图打破这种信息壁垒。从“如何找到同城牌佬”开始，到“第一次约牌怎么搞”，到“如何让群不冷场”，到“如何处理人际关系”，一步步拆解从零搭建线下打牌群的全流程。目标是</span><strong><span>降低组局门槛</span></strong><span>，让普通牌佬也能自主搭建</span><strong><span>自由、纯粹</span></strong><span>的线下决斗环境，推动民间环境生态的</span><strong><span>去中心化</span></strong><span>与</span><strong><span>普惠化</span></strong><span>。</span></p><p><span>比起某个城市只有极少数几个线下群“垄断”，如果能多一些线下群“自由竞争”互相</span><strong><span>提升群员的决斗体验</span></strong><span>，能让牌佬们</span><strong><span>多一些自由选择</span></strong><span>，既可以选择在少数线下群常驻，也可以雨露均沾</span><strong><span>哪里有活动就去哪</span></strong><span>——正如不少牌佬觉得比赛上位统计饼图中卡组类型更多一些、更</span><strong><span>百花齐放</span></strong><span>的民间环境更有可玩性一般。这样线下决斗的氛围和整体发展前景也会更好，不是吗？</span></p><p><span>当然，如果你现在玩得</span><strong><span>开心</span></strong><span>，</span><strong><span>不需要改变任何事</span></strong><span>。本文只是告诉你，如果你想做点不一样的，可以从哪里</span><strong><span>开始</span></strong><span>。</span></p><p><span>本文尾部附有一节关于城市人际环境的提醒（选读），不是教你如何对抗谁，而是让你知道：如果你遇到了类似的情况，那并</span><strong><span>不是你的问题</span></strong><span>。</span></p><h1 id='目录'><strong><span>目录</span></strong></h1><ol start='' ><li><p><span>适用群体</span></p></li><li><p><span>前期调查</span></p></li><li><p><span>常用软件选择</span></p></li><li><p><span>轻量试运行</span></p></li><li><p><span>为新血作准备</span></p></li><li><p><span>分享人生经验</span></p></li><li><p><span>进阶方向</span></p></li><li><p><span>特别篇：县城熟人社会</span></p></li><li><p><span>附：城市陌生人人际环境提醒（选读）</span></p></li><li><p><span>结语：从约牌开始，走到哪算哪</span></p></li></ol><h1 id='一适用群体谁能从本文中得到更多收获'><strong><span>一、适用群体：谁能从本文中得到更多收获？</span></strong></h1><p><span>你属于哪种情况？本文不要求你从头读到尾。不同起点的读者，可以直接跳到对应的章节。</span></p><h2 id='情况一一个人都没有但想尝试线下实卡'><strong><span>情况一：一个人都没有，但想尝试线下实卡</span></strong></h2><p><span>你还没找到同城牌友，也</span><strong><span>不确定</span></strong><span>所在城市有没有人玩民间环境。</span></p><p><strong><span>建议阅读重点：</span></strong></p><ul><li><p><span>前期调查：怎么找同城牌佬。</span></p></li><li><p><span>常用软件选择：建群用什么工具。</span></p></li><li><p><span>轻量试运行：第一次约牌怎么搞。</span></p></li></ul><p><strong><span>先找到一两个人，约一次牌</span></strong><span>。不用一开始就准备很多东西。</span></p><h2 id='情况二有几位线上认识的同城牌友但从未约过线下'><strong><span>情况二：有几位线上认识的同城牌友，但从未约过线下</span></strong></h2><p><span>你们聊过卡组，说过“有机会线下打牌”，但从来没约成。大家都在</span><strong><span>等别人先开口</span></strong><span>。</span></p><p><strong><span>建议阅读重点：</span></strong></p><ul><li><p><span>轻量试运行：怎么把“线上认识”变成“线下见面”，第一次约牌怎么定时间、选场地。</span></p></li><li><p><span>为新血作准备：想长期玩，可以准备公共预组。</span></p></li></ul><p><span>你已经有了最宝贵的事物：几个有意愿的同城牌佬。你只需要</span><strong><span>迈出第一步</span></strong><span>。</span></p><h2 id='情况三已经有少数熟人约牌但没有固定社群'><strong><span>情况三：已经有少数熟人约牌，但没有固定社群</span></strong></h2><p><span>你们有两三个人会偶尔约牌，但每次都要临时找人、临时定时间。想过建群，又担心建了没人说话。</span></p><p><strong><span>建议阅读重点：</span></strong></p><ul><li><p><span>常用软件选择：QQ群和微信群怎么选。</span></p></li><li><p><span>轻量试运行：怎么从随机约牌过渡到固定周常。</span></p></li><li><p><span>分享人生经验：长期维持群活跃度的方法。</span></p></li></ul><p><span>你们已经过了“从零开始”的阶段。现在需要的是一个</span><strong><span>能持续运转</span></strong><span>的小框架。</span></p><h2 id='情况四群已经建了但活跃度不高'><strong><span>情况四：群已经建了，但活跃度不高</span></strong></h2><p><span>群内长期没人说话，约牌也约不起来。只有你在推动，其他人都在观望。</span></p><p><strong><span>建议阅读重点：</span></strong></p><ul><li><p><span>轻量试运行：怎么重新激活一个冷场的群。</span></p></li><li><p><span>分享人生经验：冷场、无人说话时的处理思路，出现不同意见或小圈子倾向时怎么办。</span></p></li></ul><p><span>群冷场不是你的错，也不是群没有价值。很多时候只是缺一个</span><strong><span>合适的启动方式</span></strong><span>。</span></p><hr /><p><span>此外，如果你属于以下情况，本文同样适用：</span></p><ul><li><p><span>被简中“经典时光”等官方新品吸引，想</span><strong><span>从经典环境入门</span></strong><span>。</span></p></li><li><p><span>手里有几套卡组，想带新人入坑，</span><strong><span>推广自己喜欢的经典民间环境</span></strong><span>。</span></p></li><li><p><span>加入过本地群，但圈子封闭、人情绑定严重，想</span><strong><span>搭建更平等自由的打牌环境</span></strong><span>。</span></p></li><li><p><span>不一定想建大群，但想试试</span><strong><span>组织小型的约牌或娱乐赛</span></strong><span>。</span></p></li></ul><p><span>本文不适用于</span><strong><span>仅满足于线上打牌、对线下组织毫无兴趣</span></strong><span>的牌佬。</span></p><p><span>本文不要求你已经有卡组，不要求你技术好，不要求你已经有圈子。你只需要有一个想法：“我想在自己所在的城市，找几个人，一起打打民间环境的牌”，然后愿意</span><strong><span>迈出第一步</span></strong><span>。</span></p><blockquote><p><strong><span>如果觉得线下没人组织，那你可以成为那个组织的人。</span></strong></p></blockquote><h1 id='二前期调查梭哈是一种智慧一开始别乱来'><strong><span>二、前期调查：梭哈是一种智慧，一开始别乱来</span></strong></h1><p><span>在决定建群之前，先花一点时间了解本地是否已经有人在做类似的事，以及同城牌佬大概有多少、在哪里。这一步不需要很复杂，但能帮你少走弯路。</span></p><h2 id='1精准存量排查从线上群锁定同城牌佬'><strong><span>1、精准存量排查：从线上群锁定同城牌佬</span></strong></h2><p><span>这是最直接的方式。</span></p><ul><li><p><span>在408、506、2011探索者环境等民间环境线上群中，用“</span><strong><span>城市名</span></strong><span>”搜索群成员列表，或者留意群昵称里带地名的群友（</span><strong><span>需要群主和管理引导群员修改群昵称</span></strong><span>）。如果群昵称没有地域前缀，可以在群内直接发一条“寻找XX城市牌友”的消息。</span></p></li><li><p><span>找到同城牌佬后，可以私聊问一句：“你在XX城市？有没有兴趣线下约牌？”不要一上来就提“建群”，用“约牌”做切入，对方压力更小。</span></p></li><li><p><span>如果对方没兴趣或没回复，不要追问，继续找下一个。</span></p></li></ul><p><span>原则：明确身份，不绑定，不推销。</span><strong><span>只是约牌，不是拉人</span></strong><span>。</span></p><h2 id='2公域预热测试用内容吸引潜在同好'><strong><span>2、公域预热测试：用内容吸引潜在同好</span></strong></h2><p><span>如果线上群里找不到足够的人，可以到</span><strong><span>B站、小红书、贴吧、抖音、快手、NGA论坛、旅法师营地</span></strong><span>等平台发内容。</span></p><ul><li><p><span>内容方向：卡组分享、决斗录像、环境科普，或者简单一句“XX城市找民间环境牌友”等。</span></p></li><li><p><span>关键操作：标题、标签、简介里带上城市名。比如“广州408环境约牌”“茂名506环境找同好”“乌鲁木齐2011探索者环境一起来玩”。</span></p></li><li><p><span>观察反馈：有没有同城牌佬评论、私信？如果有，主动聊几句，确认对方是否真的想线下打牌。</span></p></li><li><p><span>大方得体：玩游戏王民间环境就是一个</span><strong><span>很常规的爱好</span></strong><span>，与打球、钓鱼、爬山、骑行、阅读、观影等没有本质的区别，宣传和交流时</span><strong><span>大大方方</span></strong><span>即可，无需提前害怕</span><strong><span>普遍的公众</span></strong><span>会有什么很</span><strong><span>站得住脚</span></strong><span>的负面看法。</span></p></li></ul><p><span>核心逻辑：内容本身就是筛选器。能被你的内容吸引来的，往往是对环境有真实兴趣的人，比硬拉人靠谱得多。</span></p><h2 id='3本地生态初勘了解场地与现有圈子'><strong><span>3、本地生态初勘：了解场地与现有圈子</span></strong></h2><p><span>在约第一次牌之前，先摸清本地有哪些</span><strong><span>卡店、桌游吧</span></strong><span>，或者适合打牌的公共场所（如经典的麦当劳、肯德基等快餐店，能容忍打牌的奶茶店、咖啡店等）。</span></p><ul><li><p><span>看看哪些店有场地，收费如何、环境是否安静、交通是否方便。</span></p></li><li><p><span>顺便了解一下本地已有的游戏王圈子：是官方OCG、经典时光环境为主，还是也有民间环境牌佬？氛围如何？</span></p></li><li><p><span>不需要很详细，做到</span><strong><span>心里有数</span></strong><span>就行。</span></p></li></ul><p><span>没有调查，就没有发言权。你需要获取足够的</span><strong><span>情报</span></strong><span>，才能有助于决定下一步。</span></p><h2 id='4不要急着建群稳步推进才是硬道理'><strong><span>4、不要急着建群：稳步推进才是硬道理</span></strong></h2><p><span>以上三步做完，你大概能判断出：本地有没有</span><strong><span>潜在牌佬</span></strong><span>、大概有多少、他们愿不愿意线下打牌。</span></p><p><span>如果只有一两个人有意向，可以</span><strong><span>先约一次牌</span></strong><span>，约完之后再判断要不要建群。有时候不建群，大家反而更轻松。</span></p><p><span>如果一个人都找不到，也不用灰心。可以在公域平台继续发内容，慢慢积累。</span></p><p><span>或者换个思路：先去</span><strong><span>附近城市</span></strong><span>的线下活动看看（比如有些佛山牌佬偶尔会到广州来约牌。你可以留意附近城市的民间环境群，看看有没有类似的跨城约牌），学习经验，再回来做。</span></p><p><strong><span>先调查，再行动。</span></strong><span> 不要因为一时冲动就建群，建了之后没人说话，反而打击信心。</span></p><h1 id='三常用软件选择工欲善其事必先利其器'><strong><span>三、常用软件选择：工欲善其事，必先利其器</span></strong></h1><p><span>人找得差不多了，接下来就是建群。QQ群和微信群，选哪个？</span></p><p><span>先说结论：</span><strong><span>QQ群当主阵地，微信群当辅助。</span></strong></p><h2 id='为什么选qq群当主阵地'><strong><span>为什么选QQ群当主阵地？</span></strong></h2><p><strong><span>QQ群的优势：</span></strong></p><ul><li><p><span>群文件能长期存卡表、规则、战报，新人进群自己翻。</span></p></li><li><p><span>群公告可以改，历史记录也能保留。</span></p></li><li><p><span>管理功能多，禁言、投票、作业都能用。</span></p></li><li><p><span>适合做“主群”，沉淀资料、发正式通知。</span></p></li></ul><p><strong><span>微信群的局限：</span></strong></p><ul><li><p><span>文件会过期，新成员看不到以前的聊天。</span></p></li><li><p><span>管理功能少，基本靠手动。</span></p></li><li><p><span>适合闲聊，不适合存东西。</span></p></li></ul><p><strong><span>所以建议：</span></strong></p><ul><li><p><span>用QQ群当</span><strong><span>主群</span></strong><span>，放资料、发通知、组织比赛。</span></p></li><li><p><span>如果大家平时更习惯微信，可以再建个</span><strong><span>小微信群</span></strong><span>，专门用来临时约牌、当天联络。但资料和正事还是回QQ群。</span></p></li></ul><hr /><p><strong><span>总结：QQ群负责沉淀，微信群负责聊天。</span></strong></p><h2 id='建群后的第一步把地基打好'><strong><span>建群后的第一步：把“地基”打好</span></strong></h2><p><span>群建好了，别急着拉一堆人。先把“地基”打好：</span></p><p><strong><span>群名要清晰</span></strong></p><p><span>建议格式：</span><code>【城市名】游戏王【环境名】线下约牌群</code></p><p><span>比如：</span><code>【广州】游戏王408环境线下约牌群</code></p><p><span>让人一眼就知道：这是哪个</span><strong><span>城市</span></strong><span>、玩什么</span><strong><span>环境</span></strong><span>、是干嘛的。</span></p><p><strong><span>群公告写三件事</span></strong></p><ul><li><p><span>本群是干嘛的：比如“广州408环境线下约牌群”。</span></p></li><li><p><span>简单</span><strong><span>群规</span></strong><span>：文明交流、尊重不同玩法、禁止人身攻击。</span></p></li><li><p><strong><span>鼓励约牌</span></strong><span>：说一句“欢迎大家主动约牌，别光潜水”。</span></p></li></ul><p><strong><span>设个简单的入群问题（可选）</span></strong></p><p><span>比如“你玩什么环境？”防止广告号乱入。群昵称也可以建议改成“城市（或者区县等）-昵称”，方便认人。</span></p><p><strong><span>先拉确认有意向的人</span></strong></p><p><span>建群后，先把之前确认</span><strong><span>有意向</span></strong><span>的那几个人拉进来。不用一下拉太多人，先把三五个</span><strong><span>核心牌佬</span></strong><span>聚起来。人少没关系，能约起来一次，就有第二次。</span></p><p><strong><span>群主别当甩手掌柜</span></strong></p><p><span>刚建群，没人说话很正常。你可以先发几句，比如“这周末有没有人想打牌？”“大家平时什么时间方便？”你</span><strong><span>主动</span></strong><span>一点，别人才敢开口。</span></p><hr /><p><strong><span>总结：QQ群当主阵地，微信群当辅助；群名清晰，公告写清楚，群主先主动。地基打好了，接下来就是第一次约牌。</span></strong></p><h1 id='四轻量试运行千里之行始于足下'><strong><span>四、轻量试运行：千里之行，始于足下</span></strong></h1><p><span>群建好了，人也拉了几个，接下来就是最关键的一步：</span><strong><span>把人约出来。</span></strong></p><p><span>这一部分讲的是从“有群”到“有人来”的过程。第一次约牌怎么搞、约不到人怎么办、怎么从偶尔约变成固定约，一步步来，别想太复杂。</span></p><p><span>你不需要先成为一个“懂行的人”才能开始。很多事是</span><strong><span>做了才会</span></strong><span>，不是会了才做。第一次约牌，哪怕只是说一句“这周末有空吗”，就已经是在学了。</span></p><p><span>也不需要一次做完所有步骤。你只需要先做一件事：</span><strong><span>找到一个人，约一次牌。</span></strong><span> 其他的，等这一步做完了再说。</span></p><h2 id='1第一次约牌目标不是办比赛是聚起来'><strong><span>1、第一次约牌：目标不是办比赛，是聚起来</span></strong></h2><p><span>第一次约牌，目的只有一个：让大家见个面，打上几局，觉得“下次还可以再来”。</span></p><ul><li><p><strong><span>人数</span></strong><span>：2人就能打，3-4人最佳。先从之前确认有意向的那一两个人约起。不用等“人多了再搞”，</span><strong><span>人少也能打</span></strong><span>。</span></p></li><li><p><strong><span>场地</span></strong><span>：优先选</span><strong><span>免费</span></strong><span>或</span><strong><span>低消费</span></strong><span>的公共场所，比如经典的麦当劳、肯德基，奶茶店（确认不赶人、不扰民）。也可以去本地卡店，提前问清楚</span><strong><span>有没有低消、要不要预约，营业时间如何</span></strong><span>等。如果信得过，牌友家里也行，注意安全。</span></p></li><li><p><strong><span>时间</span></strong><span>：</span><strong><span>周末下午</span></strong><span>最合适。大家不用赶着上班，打完还能一起吃个饭。</span></p></li><li><p><strong><span>实践</span></strong><span>：在群里发一句“这周末有没有人打牌？地点XX，时间XX”，像朋友约饭一样随意。活动结束后</span><strong><span>发几张照片</span></strong><span>，配一句“今天打得很爽，下次继续”。这不是炫耀，是给没来的人一个信号：这个群</span><strong><span>真的会约牌</span></strong><span>。</span></p></li><li><p><strong><span>进阶</span></strong><span>：日后条件允许，还能拍摄简单的</span><strong><span>日常约牌决斗录像</span></strong><span>（只拍桌面部分），辅以简单的剪辑（只需剪去前后多余内容、适当加速、选些不算突兀的背景音乐等），不会剪辑也可以直接发原片，上传到B站、小红书、抖音、快手等视频平台，让更多的</span><strong><span>潜在牌佬</span></strong><span>看见。</span></p></li></ul><h2 id='2没人回应正常别慌'><strong><span>2、没人回应：正常，别慌</span></strong></h2><p><span>这是最可能出现的情况。群里一片安静，不代表你失败了，可能只是</span><strong><span>大家还不熟、时间不合适</span></strong><span>，或者</span><strong><span>有人在观望</span></strong><span>。</span></p><ul><li><p><strong><span>别在群里反复刷屏</span></strong><span>，刷多了别人反而不敢说话。</span></p></li><li><p><strong><span>一对一私聊</span></strong><span>，找之前聊过的人单独问：“这周末有空吗？就我们俩先打打也行。”私聊比群聊有效得多。</span></p></li><li><p><strong><span>降低门槛</span></strong><span>，2个人就能打，打两局也行。</span></p></li></ul><p><span>如果实在没人，可以先暂停，继续在公域发内容，或去附近城市的线下活动看看。等有新意向牌佬出现，</span><strong><span>再试一次</span></strong><span>。</span></p><h2 id='3持续约牌别只靠你一个人'><strong><span>3、持续约牌：别只靠你一个人</span></strong></h2><p><span>约起来一次之后，关键是能不能约第二次、第三次。</span></p><ul><li><p><strong><span>固定时间地点</span></strong><span>。比如每周六/日下午，某个多次去的合适场地，形成习惯。大家到点了就知道“该打牌了”，不用每次重新问。</span></p></li><li><p><strong><span>鼓励群友自己发起</span></strong><span>。筛选出3-5个稳定活跃的核心牌佬，不要每次都你当发起人。有人问“周末有人吗？”，你就积极回应，让他觉得“我也能组织”。</span></p></li></ul><h2 id='4从约牌到小比赛等稳定了再说'><strong><span>4、从约牌到小比赛：等稳定了再说</span></strong></h2><p><span>如果约牌已经稳定了几次，有几位牌友常来，就可以试试搞个小型的</span><strong><span>内部娱乐赛</span></strong><span>。人数不用多，</span><strong><span>4-8人</span></strong><span>就够；规则简单点，瑞士轮打几轮；奖品可以是一包卡、一杯奶茶，重点是让大家有“</span><strong><span>正式打一次</span></strong><span>”的感觉。</span></p><p><span>办小比赛的目的，是让参与者有</span><strong><span>仪式感</span></strong><span>和</span><strong><span>归属感</span></strong><span>，也为以后办更大的活动积累经验。</span></p><p><span>可以参考一些已有的</span><strong><span>比赛流程SOP</span></strong><span>（报名、瑞士轮排表、战报发表等），不用太严格，灵活调整就行。</span></p><blockquote><p><a href='https://www.bilibili.com/opus/1198786803293749266'><span>一种游戏王赛事SOP：从筹备到战报的全流程标准作业</span></a>
+<a href='https://www.bilibili.com/opus/1200642220540035121'><span>一种游戏王赛事改良瑞士轮赛制：分组瑞士轮实战指南</span></a>
+<a href='https://www.bilibili.com/opus/1203239816784773140'><span>比赛举办公告参考模板</span></a>
+<a href='https://www.bilibili.com/opus/1201755471799648296'><span>比赛报名表问题选项参考模板</span></a>
+<a href='https://www.bilibili.com/opus/1204724153151651841'><span>比赛战绩表问题选项参考模板</span></a>
+<a href='https://www.bilibili.com/opus/1206208498166136841'><span>比赛战报参考模板</span></a>
+<a href='https://www.bilibili.com/opus/1207692834591735808'><span>一种瑞士轮计分的细化方法：让每一分都掷地有声</span></a></p></blockquote><p><span>内部比赛也稳定之后，可以试试办一场稍微正式一点的</span><strong><span>公开赛</span></strong><span>。</span></p><hr /><p><strong><span>总结：从有群到有人来，关键就一件事：先约起来。约不到人，就私聊、换时间、多试几次；约成了，就固定时间、固定场地，慢慢形成习惯；稳定了，就试试搞个小比赛。一步一步来，不用急。</span></strong></p><h1 id='五为新血作准备让新人也能轻松加入'><strong><span>五、为新血作准备：让新人也能轻松加入</span></strong></h1><p><span>群稳定了，有人常来了，接下来可以考虑一件事：</span><strong><span>让新人也能轻松加入。</span></strong></p><p><span>很多对民间环境感兴趣的人，不是不想玩，而是不知道怎么组卡。你让他自己收一套，他可能连从哪里开始都不知道。所以，准备几套</span><strong><span>公共预组</span></strong><span>，是降低新人门槛最直接的办法。</span></p><h2 id='1公共预组是什么'><strong><span>1、公共预组是什么？</span></strong></h2><p><span>就是几套现成的卡组，放在群里，谁想玩谁拿去用。</span></p><ul><li><p><strong><span>降低门槛</span></strong><span>：新人来了，不用收卡，直接拿一套就能打。资深牌佬想换环境试试，也可以借来玩。</span></p></li><li><p><strong><span>统一强度</span></strong><span>：预组之间强度相近，避免新人被资深牌佬碾压。</span></p></li><li><p><strong><span>吸引观望者</span></strong><span>：有人观望，让他先试一把，比说一百句都管用。</span></p></li></ul><p><span>核心目的：</span><strong><span>把“想玩”和“能玩”之间的门槛降到最低。</span></strong></p><h2 id='2预组怎么做两种方案'><strong><span>2、预组怎么做：两种方案</span></strong></h2><h3 id='方案一白条打印版成本最低'><strong><span>方案一：白条/打印版（成本最低）</span></strong></h3><ul><li><p><span>把卡图打印在A4纸上，剪下来，套上卡套，就能用。或者到淘宝搜索印制厚卡的服务。</span></p></li><li><p><span>适合学生党，或者作为公用试玩卡组。</span></p></li><li><p><span>可以使用中文卡图，规避外语的“语言障碍”。</span></p></li><li><p><span>缺点：手感差一点，但打牌完全没问题。</span></p></li></ul><h3 id='方案二低价实卡版体验最好'><strong><span>方案二：低价实卡版（体验最好）</span></strong></h3><ul><li><p><span>很多经典卡因为复刻，价格很便宜。一套入门级实卡卡组，</span><strong><span>100-200元甚至更低</span></strong><span>就能搞定。</span></p></li><li><p><span>可以请有经验的资深牌佬帮忙组，选操作简单、强度相近的卡组。</span></p></li><li><p><span>可参考408环境的</span><strong><span>开源分级预组</span></strong><span>（入门、比赛），直接抄作业。</span></p></li></ul><p><span>建议：先做2-3套打印版试水，确认有人用，再升级实卡版。</span></p><h2 id='3预组怎么选'><strong><span>3、预组怎么选？</span></strong></h2><p><span>选预组卡组，记住四个原则：</span></p><ul><li><p><strong><span>匹配核心环境</span></strong><span>：如果你们主要玩408环境，就选408的卡组，别整别的。</span></p></li><li><p><strong><span>操作简单</span></strong><span>：新手能快速上手的，别搞复杂combo。</span></p></li><li><p><strong><span>造价低廉</span></strong><span>：卡源充足、容易收，补卡不心疼。</span></p></li><li><p><strong><span>覆盖不同风格</span></strong><span>：最好有beat down、combo、OTK等各一套，让新人选自己喜欢的。</span></p></li></ul><h2 id='4预组怎么管别让它变成公地悲剧'><strong><span>4、预组怎么管：别让它变成“公地悲剧”</span></strong></h2><p><span>公共预组最容易出的问题是：</span><strong><span>借了不还、弄坏了没人管、用着用着就没了。</span></strong></p><p><span>几个简单规则：</span></p><ul><li><p><strong><span>指定专人保管</span></strong><span>：最好是你或某个靠谱的核心成员。</span></p></li><li><p><strong><span>登记借还</span></strong><span>：简单记一下谁借了、什么时候还。</span></p></li><li><p><strong><span>明确使用规则</span></strong><span>：比如“仅限群内活动使用”“损坏照价补”等。</span></p></li><li><p><strong><span>接受捐赠</span></strong><span>：有人愿意捐卡、捐卡套，欢迎。慢慢扩充物资库。</span></p></li></ul><p><span>不用搞得太复杂，一个本子或一个共享文档就能管。</span></p><h2 id='5还可以准备什么'><strong><span>5、还可以准备什么</span></strong></h2><p><span>除了卡组，这几样东西也能大幅提升新人体验：</span></p><ul><li><p><strong><span>基础配件</span></strong><span>：备用卡垫、骰子、指示物、通用卡套。</span></p></li><li><p><strong><span>科普物料</span></strong><span>：打印版简化规则、环境禁限卡表、入门卡组玩法介绍。</span></p></li></ul><p><span>这些东西花不了多少钱，但能让新人觉得“这个群挺专业、挺用心”。</span></p><hr /><p><strong><span>总结：准备几套公共预组，让新人不用收卡就能打。先做打印版试水，再升级实卡版。门槛降下来了，新血自然就来了。</span></strong></p><h1 id='六分享经验有必要告诉你一些人生的经验'><strong><span>六、分享经验：有必要告诉你一些，人生的经验</span></strong></h1><p><span>群建好了，人也约起来了。接下来是怎么让它活下去，而不只是热闹一阵子。这一部分不讲大道理，只讲一些可能遇到的问题和可以参考的应对方式。</span></p><h2 id='1约局固定+灵活'><strong><span>1、约局：固定+灵活</span></strong></h2><ul><li><p><strong><span>固定周常局</span></strong><span>：比如每周六下午，固定时间、固定场地。大家到点了就知道该打牌了，不用每次重新问。</span></p></li><li><p><strong><span>灵活临时局</span></strong><span>：群友想打牌，随时可以在群里喊一声。不要每次都你当发起人，鼓励大家自己约。</span></p></li><li><p><strong><span>人数兜底</span></strong><span>：核心成员尽量保底到场。哪怕只有两三个人，也能打起来，不至于冷场。</span></p></li></ul><h2 id='2怎么让群友自己发起约牌'><strong><span>2、怎么让群友自己发起约牌</span></strong></h2><p><span>如果每次都是你发起约牌，你累，群也长不大。目标是让群友自己约。</span></p><p><strong><span>几个做法：</span></strong></p><ul><li><p><strong><span>公开鼓励</span></strong><span>：“大家想打牌直接在群里喊就行，不用等我。”</span></p></li><li><p><strong><span>积极回应</span></strong><span>：有人发起约牌，你第一时间回应“算我一个”。哪怕你那天没空，也可以说“这次去不了，下次一定”。</span></p></li><li><p><strong><span>不抢风头</span></strong><span>：有人发起约牌，让他来定时间地点，你别急着替他安排。他组织了一次，下次就敢组织第二次。</span></p></li><li><p><strong><span>给点小激励</span></strong><span>：谁约成了，你在群里公开说一句“感谢XX组织”。简单一句话，比什么都管用。</span></p></li></ul><h2 id='3氛围平等开放'><strong><span>3、氛围：平等、开放</span></strong></h2><ul><li><p><strong><span>不搞技术鄙视链</span></strong><span>：新手打错了，别嘲讽。谁都是从新手过来的。</span></p></li><li><p><strong><span>不搞小圈子</span></strong><span>：别让群变成几个熟人抱团、新人插不上话的地方。</span><strong><span>主动回应新人</span></strong><span>，拉他们一起打。</span></p></li><li><p><strong><span>新人有人带</span></strong><span>：新人进群，安排个资深牌佬一对一答疑带练，让他快速融入。</span></p></li><li><p><strong><span>底线要明确</span></strong><span>：禁止引战、辱骂、恶意利用规则。</span><strong><span>该说清楚就说清楚</span></strong><span>。</span></p></li></ul><h2 id='4冷场了怎么办'><strong><span>4、冷场了怎么办</span></strong></h2><p><span>这是最常见的问题。群建好了，约了几次牌，然后慢慢没人说话了。</span></p><p><strong><span>先判断原因：</span></strong></p><ul><li><p><span>是大家太忙，还是群本身没有吸引力？</span></p></li><li><p><span>是没人发起，还是发起了没人回应？</span></p></li><li><p><span>是核心牌佬流失了，还是新人没接上？</span></p></li></ul><p><strong><span>几个可以做的事：</span></strong></p><ul><li><p><strong><span>群主先开口</span></strong><span>。不用每次都聊打牌，聊聊新卡、比赛、环境都行。你开口了，别人才敢接。</span></p></li><li><p><strong><span>私聊核心牌佬</span></strong><span>。问问他们最近忙不忙、什么时候有空。有时候他们只是忘了，或者等你先开口。</span></p></li><li><p><strong><span>降低活动门槛</span></strong><span>。不一定要凑齐4个人，2个人也能打。不一定要打一下午，打两局也行。</span></p></li><li><p><strong><span>接受冷场是常态</span></strong><span>。群不会永远热闹。有时候冷一段时间，到了假期或新卡发售，又会热起来。不用因为冷场就否定自己。</span></p></li></ul><h2 id='5出现争议怎么办'><strong><span>5、出现争议怎么办</span></strong></h2><p><span>群里有人吵架，或者对规则、玩法有不同意见，很正常。关键是别让争议变成分裂。</span><strong><span>你建的群，你有权维护它的氛围。</span></strong></p><p><strong><span>几个原则：</span></strong></p><ul><li><p><strong><span>不强迫站队</span></strong><span>。你是群主，不是裁判。</span><strong><span>不要逼群友选边</span></strong><span>，也不要让他们觉得“不表态就是敌人”。</span></p></li><li><p><strong><span>对事不对人</span></strong><span>。讨论规则可以，人身攻击不行。如果有人开始</span><strong><span>阴阳怪气、翻旧账</span></strong><span>，及时叫停。</span></p></li><li><p><strong><span>给替代方案</span></strong><span>。如果有人坚持“XX规则更好”等，不要和他争，直接说“你可以自己建个</span><strong><span>分支群</span></strong><span>试试，我们不拦着”。这比辩论有效得多。</span></p></li><li><p><strong><span>保护少数意见</span></strong><span>。有人提不同玩法，哪怕你不认同，也让他把话说完。也许他说的是错的，但让他说完，比让他闭嘴好。</span></p></li></ul><h2 id='6玩法保持新鲜感'><strong><span>6、玩法：保持新鲜感</span></strong></h2><ul><li><p><strong><span>常规局为主</span></strong><span>：大家玩什么环境，就约什么环境。</span></p></li><li><p><strong><span>偶尔搞点娱乐局</span></strong><span>：比如</span><a href='https://www.bilibili.com/opus/1218061169077518336'><span>三战之才跨环境对决</span></a><span>、</span><a href='https://www.bilibili.com/opus/1216150192115417088'><span>不对称组队赛</span></a><span>、自定义禁卡表娱乐局。不用多，一个月一次就行。</span></p></li><li><p><strong><span>每月一次小型主题赛</span></strong><span>：设置小额奖励（卡包、饮品免单等），提升参与感。</span></p></li><li><p><strong><span>鼓励群友提新玩法</span></strong><span>：有人想试什么，就让他组织一次。玩得好就保留，玩不好就算了。</span></p></li></ul><h2 id='7口碑让更多人知道'><strong><span>7、口碑：让更多人知道</span></strong></h2><ul><li><p><strong><span>每次活动后发战报、合照</span></strong><span>：发在群里，也发在本地内容平台。这不是炫耀，是让外面的人知道“</span><strong><span>这里有人在打牌</span></strong><span>”。</span></p></li><li><p><strong><span>鼓励群友邀请朋友</span></strong><span>：靠</span><strong><span>口碑</span></strong><span>自然裂变，比硬拉人靠谱。</span></p></li><li><p><strong><span>和本地卡店友好合作</span></strong><span>：互相引流，实现</span><strong><span>双赢</span></strong><span>。卡店有场地，你有牌佬，合作对双方都有好处。</span></p></li></ul><h2 id='8万一有人故意搞事怎么办'><span>8、万一有人故意搞事怎么办</span></h2><p><span>大多数争议是</span><strong><span>意见不同，说开就好</span></strong><span>。但有一种情况不一样：有人</span><strong><span>不是来打牌的，是来搞事的</span></strong><span>。</span></p><p><strong><span>怎么判断是“搞事”而不是“争议”？</span></strong></p><ul><li><p><span>不是对某个规则有意见，而是</span><strong><span>持续针对某个人</span></strong><span>；</span></p></li><li><p><span>不是讨论问题，而是</span><strong><span>散布无法验证的负面说法</span></strong><span>；</span></p></li><li><p><span>不是想解决问题，而是</span><strong><span>想让你难堪、让群分裂</span></strong><span>；</span></p></li><li><p><span>你回应了，他</span><strong><span>换话题</span></strong><span>；你不回应，他</span><strong><span>继续</span></strong><span>。</span></p></li></ul><p><span>诸如此类。</span><strong><span>先判断：是“群内可见的搞事”，还是“外部抹黑”？</span></strong></p><ul><li><p><strong><span>群内可见的搞事</span></strong><span>：你在群里</span><strong><span>亲眼看到、有截图、有记录</span></strong><span>。这种可以走沟通流程。</span></p></li><li><p><strong><span>外部抹黑</span></strong><span>：你从别人那里听说，没有直接证据，对方在别处说。这种不一定要沟通，可以</span><strong><span>直接处理</span></strong><span>，或先</span><strong><span>观察</span></strong><span>。</span></p></li></ul><p><span>如果确认是搞事，可以这样做：</span></p><p><strong><span>1、留痕。</span></strong><span> 截图，保存聊天记录、操作记录。不是为了报复，是为了万一需要处理时，有</span><strong><span>依据</span></strong><span>。也为了万一对方反咬一口，你有证据。</span></p><p><strong><span>2、不公开对线。</span></strong><span> 在群里吵架，只会让其他人看戏，让搞事者更有存在感。不跟他对骂，不陷入情绪，</span><strong><span>专注自己的事</span></strong><span>。</span></p><p><strong><span>3、私聊确认。</span></strong><span> 如果他愿意沟通，问清楚他到底想要什么，</span><strong><span>不指责、不吵架，只说明行为的影响</span></strong><span>。有时候是误会，说开就好。</span></p><p><strong><span>4、如果私聊无效，公开提醒一次。</span></strong><span> 在群里明确边界：“这样做影响群氛围，请停止。”不点名，但</span><strong><span>让所有人知道规则</span></strong><span>。这是给他留最后一次面子。</span></p><p><strong><span>5、再不听，你有权处理。</span></strong><span> 警告、禁言、移出群，都是你的权利。</span><strong><span>你的群，你决定。</span></strong><span>不需要犹豫，也不需要愧疚。</span></p><p><strong><span>6、外部抹黑：不沟通，直接处理，或先观察。</span></strong><span> 你没有直接证据，也不需要在群里公开对质。你可以：</span></p><ul><li><p><span>先观察：看看他有没有</span><strong><span>在群里继续搞事</span></strong><span>。</span></p></li><li><p><span>如果他在群里继续搞事，按“群内可见的搞事”流程处理。</span></p></li><li><p><span>如果他只是在外面说，不在群里搞事，你可以选择：</span></p><ul><li><p><span>不处理：冷处理，专注自己的事。</span></p></li><li><p><span>直接移出：如果你认为他的存在已经</span><strong><span>影响群的信任基础</span></strong><span>，可以直接移出，不需要沟通。</span><strong><span>依据事实，不凭情绪。留好记录，移出后不公开评价对方，继续做自己的事</span></strong><span> ，也避免被反咬“你独裁”。</span></p></li><li><p><span>不解释：移出后</span><strong><span>不需要在群里解释原因，不挂人、不写小作文、不在其他群讨论</span></strong><span>。如有人问，可统一回应“个人原因，不方便多说”或“他不再适合本群”，</span><strong><span>不展开、不评价、不辩论</span></strong><span>， 避免群内猜测发酵。</span></p></li></ul></li></ul><p><strong><span>7、给替代方案。</span></strong><span> 他想按自己的方式玩，可以</span><strong><span>自己建群</span></strong><span>，不强留，也不拦着。这比辩论有效得多。</span></p><p><strong><span>8、如果不想处理，也可以冷处理。</span></strong><span> </span><strong><span>无视</span></strong><span>、让他自己觉得没意思，也是一种方式。</span></p><p><strong><span>原则：</span></strong></p><ul><li><p><strong><span>不主动惹事，但也不怕事。</span></strong><span>处理完，继续打牌。</span></p></li><li><p><strong><span>不因为“怕影响和谐”就容忍搞事者。</span></strong><span>真正的和谐，是让愿意打牌的人安心打牌，而不是让搞事者继续搞事。</span></p></li><li><p><strong><span>不要因为个别人，影响所有人打牌。</span></strong><span>你的群是给愿意打牌的人建的，不是给搞事的人建的。如果搞事者让你不舒服，你有权保护自己的群。</span></p></li><li><p><strong><span>外部抹黑者不需要被“沟通”，因为他不是来沟通的，是来破坏的。</span></strong><span>你有权保护自己的群，尤其当你是从外部收到反馈，得知有人在别处</span><strong><span>持续抹黑你、试图影响你和谁玩、破坏你的群氛围</span></strong><span>。这种人，你不需要先和他沟通。他已经</span><strong><span>公开或半公开站在对立面</span></strong><span>，沟通不仅无意义，还可能被他截图利用。直接处理即可。</span></p></li><li><p><strong><span>有些情况，不需要先沟通。</span></strong><span>你没有直接证据，但外部反馈一致、可信；对方在别处抹黑，在群里却装没事；你去沟通，对方大概率否认、反咬、表演。这种情况下，直接处理是合理的。</span><strong><span>最好有截图、多人一致反馈，或至少两个独立信源。</span></strong><span> 避免仅凭一个人转述就踢人，防止被</span><strong><span>挑拨</span></strong><span>或</span><strong><span>误伤</span></strong><span>。</span></p></li></ul><p><strong><span>同时，不要因为“有人搞事”就改变自己的方向。</span></strong><span> 该约牌约牌，该办赛办赛。搞事者最怕的，就是你</span><strong><span>根本不受影响</span></strong><span>，而他什么都改变不了。</span></p><h2 id='9与其他社群的关系开放但保持独立'><strong><span>9、与其他社群的关系：开放，但保持独立</span></strong></h2><ul><li><p><strong><span>开放合作</span></strong><span>：可以和本地其他民间环境群、卡店</span><strong><span>互相宣传、共同办活动</span></strong><span>。如果对方愿意合作，欢迎；如果对方不感兴趣，也不强求。</span></p></li><li><p><strong><span>保持独立</span></strong><span>：你的群是</span><strong><span>独立运营</span></strong><span>的，不是任何其他组织的附庸。如果有人说“你应该按我们的方式来”，你可以听，但不必照做。</span><strong><span>你的群，你决定</span></strong><span>。</span></p></li><li><p><strong><span>对“人情世故”保持清醒</span></strong><span>：你可能会遇到有人想让你“站队”、想让你“改变方向”、想让你“听他们的话”，试图</span><strong><span>影响你和谁玩、不和谁玩</span></strong><span>等。不必争执，也不必讨好。做好自己的事，用你提供的</span><strong><span>体验</span></strong><span>留住真正认同你的牌友。</span><strong><span>如果有人因为你和“不对的人”玩就疏远你，那这种关系本来就不值得维护</span></strong><span>。</span></p></li></ul><h2 id='10参考已有的社群运营准则'><strong><span>10、参考已有的社群运营准则</span></strong></h2><p><span>如果群发展到一定规模，可以参考一些已有的社群运营文件（如</span><a href='https://www.bilibili.com/opus/1178741258879762441'><span>《行事倡议》</span></a><span>），但不用全盘照搬。</span></p><hr /><p><strong><span>总结：群冷场很正常，别慌；有争议别站队，给替代方案；鼓励群友自己约牌，别一个人扛；活跃度有起伏，接受就好；和其他群开放合作但保持独立。</span></strong></p><h1 id='七进阶方向从本地约牌群到生态节点'><strong><span>七、进阶方向：从本地约牌群到生态节点</span></strong></h1><p><span>群稳定了，日常约牌也顺了。如果还想往前走一步，可以试试下面两个</span><strong><span>进阶方向</span></strong><span>。不是必须做，但如果你想让它不只是一个小群，可以看看这些路径。</span></p><h2 id='1跨城联动和周边城市的同好交流'><strong><span>1、跨城联动：和周边城市的同好交流</span></strong></h2><p><span>如果你所在的城市周边也有类似的民间环境群，可以试试联动。</span></p><p><strong><span>为什么要跨城：</span></strong></p><ul><li><p><span>不同城市的牌佬，</span><strong><span>打法、卡组、习惯</span></strong><span>都不一样，交流能带来</span><strong><span>新鲜感</span></strong><span>。</span></p></li><li><p><span>跨城比赛比本地比赛更有“</span><strong><span>仪式感</span></strong><span>”，大家更愿意认真准备。</span></p></li><li><p><span>可以互相学习对方的</span><strong><span>运营经验</span></strong><span>，看看别人怎么搞活动。别人踩过的坑，你不用再踩。</span></p></li><li><p><span>今天你来找我，明天我去找你。时间长了，几个城市的牌佬就慢慢</span><strong><span>形成区域网络</span></strong><span>了。</span></p></li></ul><p><strong><span>怎么做：</span></strong></p><ul><li><p><span>先和对方群主或负责人私聊，问问有没有兴趣搞一次</span><strong><span>友谊赛</span></strong><span>。</span></p></li><li><p><span>比赛形式可以灵活，</span><strong><span>线上约战、线下互访</span></strong><span>都行。</span></p></li><li><p><span>奖品可以简单，重点是</span><strong><span>交流</span></strong><span>。</span></p></li><li><p><span>办完之后，两边都可以发战报，</span><strong><span>互相宣传</span></strong><span>。</span></p></li></ul><p><strong><span>注意事项：</span></strong></p><ul><li><p><span>不要一上来就搞大场面，先从</span><strong><span>几个人的交流赛</span></strong><span>开始。</span></p></li><li><p><span>尊重对方的环境和规则，不要强推自己的玩法。</span></p></li><li><p><span>如果对方不感兴趣，也不强求。</span></p></li></ul><h2 id='2成为本地生态的一个节点'><strong><span>2、成为本地生态的一个节点</span></strong></h2><p><span>再往远看一点，你的群不只是“一个约牌群”，它可以是本地民间环境生态的一个</span><strong><span>节点</span></strong><span>。</span></p><p><strong><span>这意味着什么：</span></strong></p><ul><li><p><span>你这里有人约牌，有人办赛，有新牌佬加入。</span></p></li><li><p><span>你和其他本地群、卡店有合作。</span></p></li><li><p><span>你和其他城市的群有交流。</span></p></li><li><p><span>你可能是本地民间环境牌佬的“</span><strong><span>第一站</span></strong><span>”——新人想玩，先找到你这里。</span></p></li></ul><p><strong><span>怎么做到：</span></strong></p><ul><li><p><span>保持</span><strong><span>开放</span></strong><span>：不排斥其他环境、其他玩法、其他群的人。</span></p></li><li><p><span>保持</span><strong><span>独立</span></strong><span>：不被任何组织吞并，也不去吞并别人。</span></p></li><li><p><span>保持</span><strong><span>活跃</span></strong><span>：每周有约牌，每月有活动，大家知道“这里一直有人在”。</span></p></li><li><p><span>保持</span><strong><span>记录</span></strong><span>：发战报、发照片、发动态，让外面的人知道你在做什么。</span></p></li></ul><p><strong><span>最终目标：</span></strong>
+<span>不是把你的群做成最大的群，而是让它成为</span><strong><span>一个稳定的、开放的、可持续的本地据点</span></strong><span>。别人提到“XX城市的民间环境”，第一个想到的就是你这里。</span></p><hr /><p><strong><span>总结：社群稳定之后，可以和周边城市联动。一个城市的群，慢慢就能变成一个小生态节点。一步一步来，不用急。你的社群不需要变成最大的，只需要变成最稳的。</span></strong></p><h1 id='八特别篇县城与熟人社会有何不同'><strong><span>八、特别篇：县城与熟人社会，有何不同</span></strong></h1><p><span>前面讲的，默认你所在的城市有一定人口基数，牌佬分散在不同圈子，有选择空间。但如果你在县城、小镇，或者牌佬总量很少的地方，情况不一样。</span></p><p><strong><span>这一部分，专门讲熟人社会怎么办。</span></strong><span>如有其他补充，也欢迎在评论区交流。</span></p><p><span>如果是在大城市使用类似方法，并非一定失败，而是会更偏向于</span><strong><span>熟人约牌</span></strong><span>而非</span><strong><span>开放社群</span></strong><span>，这点要注意。</span></p><p><span>另外，即便是熟人社会、熟人约牌，也并不意味必然是</span><strong><span>封闭、垄断、人情控制</span></strong><span>的代名词。如果有，那就是</span><strong><span>社群组织者自己选择的</span></strong><span>，谨慎接触就好。</span></p><h2 id='1先认清人少店少圈子紧'><strong><span>1、先认清：人少、店少、圈子紧</span></strong></h2><ul><li><p><span>全县可能只有几十个牌佬，甚至更少。</span></p></li><li><p><span>可能</span><strong><span>没有专业卡店</span></strong><span>，只有文具店兼卖卡，或者干脆没有。</span></p></li><li><p><span>大家基本都认识，</span><strong><span>圈子排他性强</span></strong><span>，新人不好进。</span></p></li><li><p><span>比起多中心竞争，</span><strong><span>单中心垄断</span></strong><span>才是常态，社群选择空间很小。</span></p></li><li><p><span>办事靠</span><strong><span>人情、面子、关系</span></strong><span>，不是靠规则、程序，人情压力较强。</span></p></li></ul><p><strong><span>别硬套大城市的做法，先认清现实。</span></strong><span>不是本文的核心逻辑“你可以自己建群”“用脚投票”“保持独立”错了，而是</span><strong><span>条件不同</span></strong><span>，不能生搬硬套，需要</span><strong><span>因地制宜</span></strong><span>。</span></p><h2 id='2先别急着建群先约牌融入'><strong><span>2、先别急着建群：先约牌融入</span></strong></h2><p><span>如果你所在的地方牌佬总量少，先别急着建新群。原因：</span></p><ul><li><p><span>群建了，可能永远只有几个人，也可能没人说话。</span></p></li><li><p><span>先通过</span><strong><span>同学、亲戚、邻居</span></strong><span>等熟人，找到已经在玩的圈子。先参与他们的活动，混个脸熟，了解牌佬分布。</span></p></li><li><p><span>被原圈子视为“搞分裂”，熟人压力下，很多人不敢加入。</span></p></li><li><p><span>等你在圈子里有一定存在感了，再考虑组织。</span></p></li></ul><p><strong><span>更实际的做法：先约牌，不建群。在熟人社会，信任比能力重要。</span></strong><span>找到一两个愿意打的人，先约起来。打几次之后，如果稳定了，再考虑要不要建群。有时候不建群，大家反而更轻松。</span></p><h2 id='3合作比独立更实际'><strong><span>3、合作比独立更实际</span></strong></h2><p><span>本文说“保持独立，不被任何组织吞并”。但在县城：</span></p><ul><li><p><span>资源有限，可能只有一两家卡店。</span></p></li><li><p><span>独立意味着没场地、没奖品、没人。</span></p></li><li><p><span>熟人社会里，完全独立可能被视为“</span><strong><span>不合群</span></strong><span>”。</span></p></li></ul><p><strong><span>更实际的做法：和现有圈子合作，而不是闭门造车。</span></strong><span>你可以和现有群主商量，用你的方式做一次活动，或者合作办一次比赛。不一定要建新群，</span><strong><span>先把事做成</span></strong><span>。</span></p><h2 id='4用熟人网络别只靠公域'><strong><span>4、用熟人网络，别只靠公域</span></strong></h2><p><span>本文建议在B站、小红书发内容引流。但在县城：</span></p><ul><li><p><span>牌佬可能不刷B站、小红书等，信息传播靠</span><strong><span>口口相传</span></strong><span>。</span></p></li><li><p><span>就算刷到，也觉得“网上的人跟我没关系”。</span></p></li><li><p><span>如果有人愿意</span><strong><span>带朋友</span></strong><span>来，比任何宣传都管用。</span></p></li></ul><p><strong><span>更实际的做法：通过朋友、同学、同事介绍。</span></strong><span>告诉身边的人你在玩什么，让他们带朋友来。</span><strong><span>熟人网络</span></strong><span>在县城是最有效的传播渠道。</span></p><h2 id='5场地灵活别追求专业'><strong><span>5、场地灵活，别追求专业</span></strong></h2><ul><li><p><span>别指望有专业卡店。</span></p></li><li><p><span>熟人家里、茶馆、奶茶店、公园石桌，都可以。关键是人到齐，不是场地多好。</span></p></li><li><p><span>如果卡店愿意合作，哪怕小，也是好事，尽量互利。</span></p></li></ul><p><span>注意别打扰店家，</span><strong><span>消费一点，维护关系</span></strong><span>。如果信得过，牌友家里也行，注意安全。</span></p><h2 id='6线上补足线下保持日常'><strong><span>6、线上补足线下，保持日常</span></strong></h2><ul><li><p><span>县城线下资源少，可以更多利用线上约牌。</span></p></li><li><p><span>QQ群、微信群，都能约</span><strong><span>YGOPro</span></strong><span>线上决斗。</span></p></li><li><p><span>线上可以连接全国牌佬，弥补本地人数不足。</span></p></li><li><p><span>线下作为</span><strong><span>补充</span></strong><span>，线上作为日常。</span></p></li></ul><p><strong><span>不要把“线下”当成唯一标准</span></strong><span>，能打牌就行。</span><strong><span>两者结合</span></strong><span>，比只靠线下更可持续。</span></p><h2 id='7别假借用脚投票逼人'><strong><span>7、别假借“用脚投票”逼人</span></strong></h2><p><span>虽说道理是“哪里有活动就可以去哪”，但在县城：</span></p><ul><li><p><span>可能只有一两个群。如果都不满意，</span><strong><span>没有第三个选择</span></strong><span>。</span></p></li><li><p><span>所谓的“用脚投票”建议容易变成“</span><strong><span>要么忍，要么没牌打</span></strong><span>”。</span></p></li><li><p><span>不仅是自己，也不要主动让其他牌佬做这种“</span><strong><span>艰难的选择</span></strong><span>”。</span></p></li></ul><p><strong><span>更实际的做法：在现有圈子里慢慢改善。</span></strong><span>比如，你自己多组织约牌，慢慢</span><strong><span>带出氛围</span></strong><span>。不用另建群，而是在现有群里做出不同。</span><strong><span>选择少</span></strong><span>的时候，</span><strong><span>改善</span></strong><span>比离开更实际。</span></p><h2 id='8组织者要有来有往量力而行别被人情绑架'><strong><span>8、组织者要有来有往，量力而行，别被人情绑架</span></strong></h2><ul><li><p><span>在熟人社会，组织者不能只付出。可以接受小赞助、小回报，维持</span><strong><span>可持续性</span></strong><span>。</span></p></li><li><p><span>不要把自己搞得太累，也不要被人情绑架。能办就办，办不了就歇一歇，</span><strong><span>量力而行</span></strong><span>。不要因为“不好意思拒绝”而硬撑，你的</span><strong><span>精力也是成本</span></strong><span>。</span></p></li></ul><p><span>熟人社会里，组织者容易</span><strong><span>被期待“无私奉献”</span></strong><span>，但长期只付出，谁也撑不住。</span></p><h2 id='9守住底线尊重自由选择'><strong><span>9、守住底线，尊重自由选择</span></strong></h2><p><span>熟人社会里，</span><strong><span>人情压力</span></strong><span>更真实。拒绝参与可能被说“不合群”，下次见面可能尴尬。但底线不能退：</span></p><ul><li><p><span>你的活动</span><strong><span>不违法、不违背公序良俗、不损害他人合法权益</span></strong><span>。</span></p></li><li><p><strong><span>内心提醒自己</span></strong><span>你不欠任何人什么，你有权选择自己的玩法。同时，别人想配合、想加入某种模式，那也是他们的自由，尊重就好。</span></p></li><li><p><span>不干涉他人，也不被他人干涉。</span></p></li></ul><p><strong><span>熟人社会的压力是真的，但你的自由也是真的。</span></strong></p><h2 id='10人情与规则并重'><strong><span>10、人情与规则并重</span></strong></h2><ul><li><p><span>在熟人社会，人情规矩是现实，绕不开。不要直接否定人情，而是</span><strong><span>用人情推动规则</span></strong><span>。</span></p></li><li><p><span>可以倡导“自愿参与”“不强迫”，但别硬讲“不欠任何人”。</span></p></li><li><p><span>法治是</span><strong><span>底线</span></strong><span>，人情是</span><strong><span>润滑剂</span></strong><span>，两者不冲突。</span></p></li></ul><p><span>你可以有自己的底线，但表达方式可以</span><strong><span>温和</span></strong><span>一点。</span></p><h2 id='11跨城联动量力而行'><strong><span>11、跨城联动量力而行</span></strong></h2><ul><li><p><span>附近城市有活动，可以</span><strong><span>偶尔</span></strong><span>参与。但别把跨城联动当主要方式，</span><strong><span>成本高，难持续</span></strong><span>。</span></p></li><li><p><span>如果有条件，可以邀请附近城市的牌佬来玩，但别强求。</span></p></li><li><p><span>先把本地小圈子稳住，再考虑往外走。</span></p></li></ul><p><span>偶尔联动是</span><strong><span>加分项</span></strong><span>，不是必选项。</span></p><h2 id='12接受小圈子现实不强求多中心'><strong><span>12、接受小圈子现实，不强求多中心</span></strong></h2><ul><li><p><span>大城市可以追求“多中心竞争”，县城可能永远只有一两个小圈子。不要因为“做不到多中心”就觉得失败。</span></p></li><li><p><span>人少没关系，</span><strong><span>稳定</span></strong><span>就行；不一定要做大，</span><strong><span>开心</span></strong><span>就行；不一定要独立，</span><strong><span>合作</span></strong><span>也行。</span></p></li></ul><p><span>目标不是“建很多群”，而是“</span><strong><span>让这个小圈子更健康</span></strong><span>”。</span></p><hr /><p><strong><span>总结：县城熟人社会，别照搬大城市。先融入再组织，用熟人网络找牌佬，场地灵活，线上补线下，人情与规则并重，量力而行。走到哪算哪，不用急。你的目标不是建一个大群，而是让愿意打牌的人，能一直有牌打。</span></strong></p><h1 id='附一些关于城市陌生人社会人际环境的提醒选读'><strong><span>附：一些关于城市陌生人社会人际环境的提醒（选读）</span></strong></h1><p><span>前面讲的都是怎么做事。最后这一节，讲的是在</span><strong><span>城市陌生人社会</span></strong><span>做事时可能遇到的人际场景。</span></p><p><span>无论在哪里，人际交往都是需要注意的。不是说一定要圆滑、要讨好谁，而是说当你开始创建一个新群、组织线下活动时，你可能会注意到一些场景似曾相识：</span></p><ul><li><p><span>有人会试图</span><strong><span>影响你和谁玩、不和谁玩</span></strong><span>。</span></p><ul><li><p><span>可能会摆出“你到底是不是</span><strong><span>自己人</span></strong><span>”“还讲不讲</span><strong><span>义气</span></strong><span>”“你要这样</span><strong><span>以后就别来找我</span></strong><span>”等经典说法。</span></p></li></ul></li><li><p><span>有人会对你的</span><strong><span>玩法选择</span></strong><span>表示异议，认为他选的玩法才是对的。</span></p><ul><li><p><span>“</span><strong><span>我们都玩那个</span></strong><span>为什么就你要玩这个”“你的玩法游戏性差，</span><strong><span>我们的玩法游戏性才好</span></strong><span>”等。</span></p></li></ul></li><li><p><span>有人会“</span><strong><span>特别关心</span></strong><span>”你的群和活动。</span></p><ul><li><p><span>“你建的群、组织的活动和我无关，但</span><strong><span>最好不要搞</span></strong><span>”“你做事前</span><strong><span>跟我（或某“大佬”）打过招呼</span></strong><span>了吗”等。</span></p></li></ul></li><li><p><span>有人会散布一些</span><strong><span>无法验证的负面说法</span></strong><span>，但不愿意</span><strong><span>当面、公开大大方方把话说清楚</span></strong><span>，更从未展示</span><strong><span>证据</span></strong><span>，似乎</span><strong><span>公开对话、相互质证</span></strong><span>是什么不利之事一般。</span></p><ul><li><p><span>“他就是因为</span><strong><span>很坏没人跟他玩</span></strong><span>才想自己建群”“他就是一个</span><strong><span>喜欢和别人斗来斗去</span></strong><span>的人啊”“他搞比赛、搞社群运营不就是</span><strong><span>想捞钱</span></strong><span>嘛”等。</span></p></li><li><p><span>将游戏中的一些</span><strong><span>无意犯规</span></strong><span>散布为</span><strong><span>故意出千</span></strong><span>性质的行为等。</span></p></li><li><p><span>更离谱的，甚至会散布</span><strong><span>两性交往</span></strong><span>相关的无证据传言等。</span></p></li></ul></li><li><p><span>有人会说话字里行间充斥着</span><strong><span>情绪发泄、避重就轻、阴谋论、断章取义</span></strong><span>乃至</span><strong><span>人身攻击</span></strong><span>等，但就是不愿意从</span><strong><span>完整、全面的事实与逻辑</span></strong><span>的角度去谈，尤其会使用</span><strong><span>只谈表现、不谈原因，片面陈述和解读有利事实，先手抢占受害者位置</span></strong><span>等“</span><strong><span>叙述性诡计</span></strong><span>”。</span></p><ul><li><p><span>情绪发泄、断章取义、人身攻击等部分较为明显，此处不作举例。</span></p></li><li><p><span>“你</span><strong><span>怎么说话</span></strong><span>的”“你这是什么</span><strong><span>态度</span></strong><span>”“你真是低</span><strong><span>情商</span></strong><span>”“你有没有点</span><strong><span>眼力见</span></strong><span>”“我没有针对你，但你就是让我</span><strong><span>不舒服</span></strong><span>”等。</span></p></li><li><p><span>“你就是想自立山头</span><strong><span>当大哥</span></strong><span>”“你这是在</span><strong><span>抢人</span></strong><span>”“你想</span><strong><span>控制圈子、搞独裁、搞分裂</span></strong><span>”等。</span></p></li></ul></li><li><p><span>有人会在你想说些什么的时候</span><strong><span>倒打一耙、“过错配重”，硬造非完美受害者等，转移话题重点</span></strong><span>。</span></p><ul><li><p><span>“现在这样</span><strong><span>全都是因为你</span></strong><span>”“你以为</span><strong><span>就你做的才是对的</span></strong><span>吗”“你以前没有做过这种事吗，有什么</span><strong><span>资格</span></strong><span>说我”等。</span></p></li></ul></li><li><p><span>有人会在以上话术不奏效后，</span><strong><span>自己或连同他人对你实施冷暴力</span></strong><span>，</span><strong><span>孤立</span></strong><span>你、</span><strong><span>忽视</span></strong><span>你，以此作为最后的控制手段。</span></p><ul><li><p><span>如</span><strong><span>集体沉默、回避、排斥</span></strong><span>等，企图让你自己和旁人产生“</span><strong><span>就是因为你有问题、有错误其他人才孤立你</span></strong><span>”的想法而并非</span><strong><span>深究真实原因</span></strong><span>。</span></p></li><li><p><span>也可能不使用话术，</span><strong><span>直接</span></strong><span>实施冷暴力。</span></p></li></ul></li><li><p><span>有人会做出一些表面看似正常、但让你感觉</span><strong><span>不太对劲、阴阳怪气</span></strong><span>的举动。</span></p><ul><li><p><span>如留言“我是</span><strong><span>新手求带</span></strong><span>”，却从其他渠道一了解竟</span><strong><span>已是资深牌佬</span></strong><span>且</span><strong><span>已在其他民间环境的线下群许久</span></strong><span>等。</span></p></li><li><p><span>对于</span><strong><span>非负面</span></strong><span>的人、事，看似讨论、描述事实，其实暗含</span><strong><span>贬低、嘲讽</span></strong><span>，细读之下</span><strong><span>针对</span></strong><span>之意十分明确等。</span></p></li></ul></li></ul><p><span>诸如此类，这些不是某个圈子特有的现象，而是哪怕在城市的人际环境中也常见的情况，你在</span><strong><span>学校、职场</span></strong><span>等场景也可能遇到过。</span></p><p><span>这</span><strong><span>不是你的问题</span></strong><span>，也不代表你做错了什么，你不需要为此改变自己的计划，更</span><strong><span>不需要去“反思”自我内耗</span></strong><span>。</span></p><p><span>遇到这些情况，你</span><strong><span>不必去分辨</span></strong><span>对方到底有没有恶意——无论是</span><strong><span>从小形成的观念、确实在贯彻“霸之意志”</span></strong><span>，还是别的什么。</span></p><p><span>只要你的活动</span><strong><span>不违反法律、不违背公序良俗、不损害他人合法权益</span></strong><span>，如果你觉得</span><strong><span>不舒服</span></strong><span>，就可以选择</span><strong><span>不回应</span></strong><span>，继续</span><strong><span>做自己想做的事</span></strong><span>。</span></p><p><span>你</span><strong><span>不必说服</span></strong><span>每一个人，也</span><strong><span>不必回应</span></strong><span>每一条评价，更没人可以用所谓的</span><strong><span>人情世故</span></strong><span>等方式</span><strong><span>打压、控制、裹挟</span></strong><span>你（“</span><strong><span>PUA</span></strong><span>”）。你是</span><strong><span>自由</span></strong><span>的，也</span><strong><span>不欠任何人什么</span></strong><span>。</span></p><p><span>即便你没有遵循</span><strong><span>法定、约定义务</span></strong><span>（此处指须</span><strong><span>依法、依约</span></strong><span>经得同意）</span><strong><span>之外</span></strong><span>的</span><strong><span>做事要先打招呼、拜码头</span></strong><span>等所谓</span><strong><span>不成文的规矩</span></strong><span>，也绝非他们能如此对你的</span><strong><span>正当理由</span></strong><span>。</span></p><p><span>更何况，一般会用到（尤其是经常、大量使用）这些方法的人，说明既</span><strong><span>无影响现实生活的武力</span></strong><span>，又</span><strong><span>无足够针对的权力</span></strong><span>，</span><strong><span>资源</span></strong><span>即便处于优势也</span><strong><span>并非压倒性</span></strong><span>，于是</span><strong><span>只能寄望于嘴炮“劝降”</span></strong><span>或</span><strong><span>给你的生活带来无聊的小骚扰</span></strong><span>。</span></p><p><strong><span>真正有实力的人，不需要用这些方式</span></strong><span>，而是</span><strong><span>直接无视</span></strong><span>你建不建群（不认为能产生威胁），并</span><strong><span>用实力“平推”</span></strong><span>专注于自己想做之事。</span></p><p><span>反过来说，这也印证了你的约牌、建群、办赛等行为的</span><strong><span>有效性</span></strong><span>。如果没用，这些人也没必要</span><strong><span>特意对你</span></strong><span>做这些事——</span></p><p><span>赌你也许是会因为</span><strong><span>“多一事不如少一事”“给面子”“别不知好歹”“不好意思拒绝”“害怕不听话的话他们会到处乱讲”</span></strong><span>等而自己</span><strong><span>吃哑巴亏忍让</span></strong><span>的“</span><strong><span>老实人</span></strong><span>”，可以被他们的</span><strong><span>经典人情控制话术</span></strong><span>轻松拿捏牵着走。</span></p><p><span>这并不代表他们自带什么</span><strong><span>可以公然坦荡直说的道义正当性</span></strong><span>——不是</span><strong><span>懒得说、不屑说、不想说</span></strong><span>，而是</span><strong><span>真没有可坦荡说的</span></strong><span>，也许</span><strong><span>深层次的真实动机</span></strong><span>他们自己都不怎么好意思透露出来。</span></p><p><span>还能逗人会心一笑：原来我们游戏王民间环境圈子，也有自己的“</span><strong><span>穿山警察</span></strong><span>”（参考一些服装圈子等）、“</span><strong><span>毒唯</span></strong><span>”（参考饭圈等）等奇妙的群体类型呀。</span></p><p><span>因此大可</span><strong><span>无需惧怕</span></strong><span>，因为这些只是</span><strong><span>虚张声势的纸老虎式小伎俩</span></strong><span>，仅能影响到</span><strong><span>愿意陪他们玩</span></strong><span>这些</span><strong><span>公开说出来很容易见光死</span></strong><span>的“</span><strong><span>人情世故小游戏</span></strong><span>”的人，根本不是什么</span><strong><span>不照着做就会有可怕不利后果的硬性依据</span></strong><span>，更不存在任何</span><strong><span>有效的实际约束力</span></strong><span>——正如某些坊间故事，部分妖怪要害人但无力破门，只能威逼利诱哄人</span><strong><span>主动</span></strong><span>开门。</span></p><p><span>你若不配合，他们便</span><strong><span>无可奈何</span></strong><span>，不可能导致你没牌打，更不可能做到所谓的“封杀”“抵制”，他们拦不住任何牌佬</span><strong><span>自由追求快乐决斗</span></strong><span>的心。</span></p><p><span>甚至你若配合了，还只会让自己</span><strong><span>失去原本可以自由享受的快乐决斗</span></strong><span>，获得的只是</span><strong><span>从所谓人情世故的夹缝中挤出来的、非常局限的“快乐”</span></strong><span>。</span></p><p><span>在如今的</span><strong><span>现代化、信息化、法治化社会</span></strong><span>，尤其是经济发达的</span><strong><span>全国化、国际化大城市</span></strong><span>，所谓的人情世故在</span><strong><span>普遍的范围内</span></strong><span>更应当回到</span><strong><span>一般世俗社交礼节、促进友好交流</span></strong><span>的范围内，而不是成为游戏王民间环境圈子运转的</span><strong><span>优先或唯一行为准则</span></strong><span>，去</span><strong><span>限制、剥夺</span></strong><span>包括你在内的</span><strong><span>所有牌佬</span></strong><span>追求快乐决斗的</span><strong><span>自由</span></strong><span>。</span></p><p><span>你只需要</span><strong><span>做好自己想玩的</span></strong><span>，以及让</span><strong><span>乐意享受快乐决斗</span></strong><span>的牌佬能</span><strong><span>玩到他们想玩的</span></strong><span>就行。以</span><strong><span>可预期、安全感、有日常、有自由、有记录</span></strong><span>等</span><strong><span>自身价值</span></strong><span>来</span><strong><span>吸引</span></strong><span>牌佬们的</span><strong><span>真心认同</span></strong><span>，而非用“人情世故小游戏”等“</span><strong><span>生死符</span></strong><span>”去</span><strong><span>强拉、控制</span></strong><span>任何牌佬</span><strong><span>画地为牢</span></strong><span>。</span></p><p><strong><span>正如在饭堂吃饭，互相之间就自觉点，不要随意，也无需干涉、指点他人打什么菜了。</span></strong></p><p><span>本部分内容，不是让你去</span><strong><span>对抗</span></strong><span>他人，而是让你了解，找同城牌友决斗，不是非得</span><strong><span>取得哪个原有社群的同意或认可</span></strong><span>才行，这也包括</span><strong><span>作为作者的本人的社群</span></strong><span>。谁要阻拦，那就</span><strong><span>绕开</span></strong><span>谁即可。</span></p><p><span>你也</span><strong><span>不需要说服</span></strong><span>任何人，如果有人觉得这不适合他，那就不适合他。你只需要做你自己的事，让愿意来的人来。</span></p><p><strong><span>不带攻击性、控制性</span></strong><span>的</span><strong><span>良性</span></strong><span>传统人情圈子有它的</span><strong><span>温暖</span></strong><span>，现代化信息化规则化的新生态有它的</span><strong><span>自由</span></strong><span>。一名牌佬可以同时在这两者内</span><strong><span>共存</span></strong><span>，</span><strong><span>按需参与</span></strong><span>，不必被迫</span><strong><span>选边站队</span></strong><span>。还能只参与一个传统人情圈子中的</span><strong><span>温暖部分</span></strong><span>，并与其中可能</span><strong><span>让人不舒服</span></strong><span>的</span><strong><span>打压、控制、裹挟</span></strong><span>等部分</span><strong><span>保持距离</span></strong><span>。</span></p><p><span>毕竟一般牌佬打牌是为了</span><strong><span>玩得开心</span></strong><span>，不是为了在“人情世故小游戏”中被</span><strong><span>打压、控制、裹挟</span></strong><span>，</span><strong><span>牺牲自己的快乐决斗的自由</span></strong><span>去满足所谓“大哥”的</span><strong><span>控制欲</span></strong><span>、得到“大哥”</span><strong><span>奖励小红花</span></strong><span>般的所谓认可——毕竟</span><strong><span>圈子内的绝大部分关系孰好孰坏，都无法直接转化为对生活与工作的提升</span></strong><span>（毕竟又不是金融圈里玩掼蛋，笑），那还倒不如大道至简，回到</span><strong><span>享受这个游戏本身</span></strong><span>中去。</span></p><p><span>正如既玩游戏王，也玩其他卡牌游戏，当然不构成对游戏王的所谓“背叛”。只不过是人在哪能感到</span><strong><span>开心、安心</span></strong><span>，就去哪而已。这里约牌</span><strong><span>开心</span></strong><span>就去这里，那里比赛</span><strong><span>刺激</span></strong><span>就到那里，某群聊天</span><strong><span>有趣</span></strong><span>就多在某群冒泡。本人见识少，确实也没见过“今天在甲餐厅吃饭，明天到乙餐厅吃饭，就是对甲餐厅的背叛”这类型逻辑的观点能获得</span><strong><span>社会普遍的认同、适用</span></strong><span>。</span></p><p><span>而且一个</span><strong><span>健康</span></strong><span>的社群，也没必要用</span><strong><span>让人选边站队</span></strong><span>这样的方法来</span><strong><span>维持人数</span></strong><span>，因为它自有</span><strong><span>吸引</span></strong><span>牌佬</span><strong><span>真心认同</span></strong><span>的因素在。</span></p><p><span>另外，本部分内容也只是告诉你，你若选择了自主发展，则无需太过在意</span><strong><span>传统人情圈子超出范围的长臂管辖</span></strong><span>，仅此而已。</span></p><p><span>当然，你想要</span><strong><span>配合</span></strong><span>他们或者</span><strong><span>加入</span></strong><span>那种模式，那也是你的</span><strong><span>自由</span></strong><span>，本人尊重、祝福，不另作评价或干涉。</span></p><p><span>如果你想深入了解圈子运营中可能遇到的人际问题，可以参考这篇文章</span><a href='https://www.bilibili.com/opus/1200375507372212276'><span>《小众兴趣圈生存指南：从游戏王社群的恩怨情仇，看懂圈子运营逻辑》</span></a><span>。</span></p><p><span>其他小众兴趣圈（除了上述提到的服装、饭圈，还有其他集换式卡牌乃至泛桌游，以及积木、二游、动漫、电影、模型等）的前人经验，也可适当</span><strong><span>借鉴</span></strong><span>，</span><strong><span>普适性的规律总结不会受限于具体的细分领域</span></strong><span>。</span></p><blockquote><p><span>基于</span><strong><span>事实依据</span></strong><span>而非肆意定性，</span><strong><span>证据支撑</span></strong><span>而非信口开河，</span><strong><span>逻辑推理</span></strong><span>而非臆想妄断；保持</span><strong><span>独立思考</span></strong><span>而非人云亦云；讨论着重于</span><strong><span>就事论事</span></strong><span>而非无关联性的所谓品格、动机、资格和经历。</span></p></blockquote><h1 id='结语从约牌开始走到哪算哪'><strong><span>结语：从约牌开始，走到哪算哪</span></strong></h1><p><span>本文没有“最终目标”，也没有“成功标准”。</span></p><p><span>你的群可能一直热闹，也可能冷一阵热一阵。有人来，有人走，有人偶尔冒个泡，这都很正常。线下群本来就是这样，大家都有自己的生活，打牌只是其中一部分。不用因为群里几天没人说话就焦虑，也不用因为别人群人多就觉得自己不行。</span></p><p><strong><span>群的存在本身，就已经为同城约牌提供了一条通道。</span></strong><span> 哪怕一个月只约一次，哪怕只有两三个人，只要还有人愿意来，这个群就有价值。</span></p><p><span>如果你在组织过程中遇到问题，或者想和正在尝试组织活动的人交流，可以</span><strong><span>在评论区提问、讨论</span></strong><span>。</span></p><p><span>如果需要宣传支持，可以联系</span><strong><span>对应环境的线上负责人</span></strong><span>（如408群对接408线上群，506群对接506线上群等）等。具体怎么组织、怎么运营，还是由</span><strong><span>各群自己决定</span></strong><span>。</span></p><p><span>最后，还是那句话：</span><strong><span>从约牌开始，走到哪算哪</span></strong><span>。</span></p><p><strong><span>你不需要把它做成什么。它自己会长成它该有的样子。</span></strong></p><p><span>本文不能代替行动，很多事只有</span><strong><span>真正动手去试</span></strong><span>，才会从“不会”变成“会”。纸上得来终觉浅，绝知此事要躬行。</span></p><p><span>如果你看完后还是觉得“太难了”，那也没关系，不是所有事都必须自己来做，找到适合自己的参与方式就好。等你确实想做的时候，随时欢迎回来。</span></p></div></div>
+
+<script>(function(){function e(e,n,i){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var t=e.target;t&&t!=this;t=t.parentNode)if(t.matches(n)){!1===i.call(t,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)}var t=document.body.parentElement,i=[],r=null,o=document.body.classList.contains("typora-export-collapse-outline");function a(){return t.scrollTop}e("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),u(),!1}),e("click",".outline-item",function(e){var t=this.querySelector(".outline-label");location.hash="#"+t.getAttribute("href"),o&&((t=this.closest(".outline-item-wrapper").classList).contains("outline-item-open")||t.add("outline-item-open"),d(),t.add("outline-item-active"))});function s(){var e=a();r=null;for(var t=0;t<i.length&&i[t][1]-e<60;t++)r=i[t]}function n(){c=setTimeout(function(){var n;i=[],n=a(),document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(e=>{var t=e.getAttribute("id");i.push([t,n+e.getBoundingClientRect().y])}),s(),u()},300)}var l,c,d=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},u=function(){if(r&&(d(),t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(r[0]):r[0])+'"]')))if(o){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var t,n=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");n;)n=(t=n).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")};window.addEventListener("scroll",function(e){l&&clearTimeout(l),l=setTimeout(function(){s(),u()},300)});window.addEventListener("resize",function(e){c&&clearTimeout(c),n()}),n()})();</script></body>
+</html>
