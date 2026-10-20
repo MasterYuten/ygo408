@@ -1,0 +1,620 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>游戏王民间环境混战模式参考规则</title>
+</head>
+<body class='typora-export os-windows typora-export-show-outline typora-export-no-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#游戏王民间环境混战模式参考规则">游戏王民间环境混战模式参考规则</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前言"><strong>前言</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#目录"><strong>目录</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#一基础规则版本"><strong>一、基础规则版本</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#二混战模式规则介绍"><strong>二、混战模式规则介绍</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1整体原则"><strong>1、整体原则</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2行动顺序原则"><strong>2、行动顺序原则</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#3细节规定持续完善中"><strong>3、细节规定（持续完善中）</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1仅场上类文本"><strong>（1）仅“场上”类文本</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2对方单方类文本"><strong>（2）“对方”单方类文本</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#3双方自己对方互相等多方类文本"><strong>（3）“双方”“自己·对方”“互相”等多方类文本</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#4优先权转移"><strong>（4）优先权转移</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#5落败玩家卡片回合处理"><strong>（5）落败玩家卡片、回合处理</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#6特殊胜利"><strong>（6）特殊胜利</strong></a></div><ul class="outline-children"></ul></li></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#三混战模式多人模式参考"><strong>三、混战模式多人模式参考</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1基础玩法"><strong>1、基础玩法</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2变式玩法欢迎微调拓展"><strong>2、变式玩法（欢迎微调、拓展）</strong></a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1团队模式"><strong>（1）团队模式</strong></a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2非团队模式"><strong>（2）非团队模式</strong></a></div><ul class="outline-children"></ul></li></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#后记"><strong>后记</strong></a></div><ul class="outline-children"></ul></li></div></div><div id='write'  class=''><h1 id='游戏王民间环境混战模式参考规则'><span>游戏王民间环境混战模式参考规则</span></h1><p><img src="./0.png" referrerpolicy="no-referrer"></p><p><a href='../../index.html'><span>返回首页</span></a></p><hr /><p><span>作者：神之吹息</span></p><p><span>版本：V1（初版）</span></p><p><span>首次发表日期：2026年10月21日</span></p><p><span>最后修改日期：2026年10月21日</span></p><h1 id='前言'><strong><span>前言</span></strong></h1><p><strong><span>本文/视频参照CC BY（署名）协议开放转载，敬请保留原链接与作者信息噢~感谢传播！支持知识开放、协作与共享。</span></strong></p><p><span>欢迎各位读者姥爷看完后理性讨论，并支持各位读者姥爷</span><strong><span>自定义规则</span></strong><span>。</span></p><p><span>游戏王IP系列动画中，常见一些（类）BOSS战中存在多人决斗的剧情，或各自为战，或联合对抗BOSS等。无论如何，这些决斗有一定的观赏性，但KONAMI官方并未适时制定规则普及，乃至卡片设计也并未考虑到该部分。</span></p><p><span>据此，本人以408环境为基础，参考部分动画设定，研究出一套混战模式规则，供各位读者姥爷体验。部分机制参考、致敬了其他桌游的规则及其他玩家的类似灵感，希望这能带给各位读者姥爷不同于常规决斗的乐趣。</span></p><p><span>本文所述的混战模式（Battle Royal）参考了</span><strong><span>《游戏王ARC-V》第24集《叛逆之翼 急袭猛禽》</span></strong><span>的决斗构成，望能让各位读者姥爷体验到</span><strong><span>铁之意志、钢之强韧</span></strong><span>的决斗（笑）。</span></p><p><span>本文的部分专有名词，参照</span><strong><span>《官方完全规则书（中文翻译）》</span></strong><span>（</span><a href='https://ocg-rulebook.rtfd.io/' target='_blank' class='url'>https://ocg-rulebook.rtfd.io/</a><span>）、</span><strong><span>碎冰的规则整合</span></strong><span>（</span><a href='https://ocg-rule.readthedocs.io/zh-cn/latest/index.html' target='_blank' class='url'>https://ocg-rule.readthedocs.io/zh-cn/latest/index.html</a><span>）。</span></p><h1 id='目录'><strong><span>目录</span></strong></h1><ol start='' ><li><p><span>基础规则版本</span></p></li><li><p><span>混战模式规则介绍</span></p><ol start='' ><li><p><span>整体原则</span></p></li><li><p><span>行动顺序原则</span></p></li><li><p><span>细节规定（完善中）</span></p></li><li><p><span>落败玩家卡片处理</span></p></li><li><p><span>特殊胜利</span></p></li></ol></li><li><p><span>混战模式多人模式参考</span></p><ol start='' ><li><p><span>基础玩法</span></p></li><li><p><span>变式玩法（欢迎微调、拓展！）</span></p></li></ol></li><li><p><span>后记</span></p></li></ol><h1 id='一基础规则版本'><strong><span>一、基础规则版本</span></strong></h1><p><span>本文</span><strong><span>未特别规定</span></strong><span>的部分，适用日常决斗时使用的版本——无论是官方环境还是各种民间环境。</span></p><p><span>以408环境为例，即是“大师规则2020（不适用额外怪兽区）+2006年4月前卡池+2006年3月禁限卡表”。</span></p><p><span>当然，也可以不局限于408环境，比如结合</span><a href='../2.2026-6-26/2.2026-6-26.html'><span>三战之才</span></a><span>模式。</span></p><h1 id='二混战模式规则介绍'><strong><span>二、混战模式规则介绍</span></strong></h1><p><span>省流版：多人混战，猜拳定顺序，每人第1回合不能抽卡、不能进入战斗阶段，之后正常。攻击可选任意对方，效果“对方”按上下文判定。落败玩家的卡离开游戏。详见下文。</span></p><h2 id='1整体原则'><strong><span>1、整体原则</span></strong></h2><p><span>混战模式暂只适用于</span><strong><span>不适用额外怪兽区</span></strong><span>的规则版本。</span></p><p><span>每名玩家的第1回合按照</span><strong><span>基础规则版本的先攻第1回合规则</span></strong><span>进行。</span></p><p><span>每名玩家之间</span><strong><span>互为“对方”</span></strong><span>，每名玩家</span><strong><span>都行动过1个回合</span></strong><span>称为“1轮”。</span></p><p><span>战斗阶段中，怪兽的攻击可以选择任意对方玩家的怪兽作为攻击对象，或者对任意没有怪兽的对方玩家直接攻击。</span></p><p><span>不建议适用</span><strong><span>特殊胜利</span></strong><span>。</span></p><blockquote><p><span>以</span><strong><span>408环境</span></strong><span>为例，即每名玩家第1轮中</span><strong><span>各自的第1回合不能抽卡、不能进入战斗阶段</span></strong><span>。</span>
+<span>也就是说，第2轮中最先能抽卡、进入战斗阶段的一般是</span><strong><span>最先行动的玩家</span></strong><span>。</span>
+<span>当然，按照基础规则版本，初始基本分还是</span><strong><span>8000</span></strong><span>，初始手卡还是</span><strong><span>5张</span></strong><span>。</span></p></blockquote><h2 id='2行动顺序原则'><strong><span>2、行动顺序原则</span></strong></h2><p><span>玩家通过猜拳、掷骰子、抽签等方式决定自身的</span><strong><span>行动次序</span></strong><span>（俗称“X号位”）。</span></p><p><span>回合按次序进行，本轮最后一位玩家回合结束后，进入下轮首位玩家的回合。</span></p><p><span>按照行动次序，下一位行动的玩家称为“下家”，上一位行动的玩家称为“上家”。</span></p><p><span>最后一位玩家是首位玩家的上家，反之同理。</span></p><h2 id='3细节规定持续完善中'><strong><span>3、细节规定（持续完善中）</span></strong></h2><h3 id='1仅场上类文本'><strong><span>（1）仅“场上”类文本</span></strong></h3><p><span>只记述“</span><strong><span>场上</span></strong><span>”文本，一般指所有现存玩家的场。</span></p><ul><li><p><span>例1：发动“激流葬”，破坏的是</span><strong><span>所有玩家场上</span></strong><span>的怪兽。</span></p></li><li><p><span>例2：发动“旋风”时，从</span><strong><span>所有玩家的场上</span></strong><span>任取1张魔法·陷阱卡为对象。</span></p></li><li><p><span>例3：发动“次元魔法”，适用破坏怪兽的效果时，逻辑和动作类似例2，只是规则上不需要取对象。</span></p></li><li><p><span>例4：发动“神鸟攻击”时，从</span><strong><span>所有玩家的场上</span></strong><span>任取2张卡为对象。</span></p></li></ul><h3 id='2对方单方类文本'><strong><span>（2）“对方”单方类文本</span></strong></h3><p><span>一般</span><strong><span>进入连锁的效果</span></strong><span>，记述有“</span><strong><span>对方</span></strong><span>”的文本，一般指某个（些）特定对方玩家。</span></p><ol start='' ><li><p><span>需要发动卡或效果的同时</span><strong><span>确定具体的对方玩家</span></strong><span>，然后才转移优先权。</span></p><ul><li><p><span>例1：发动“地碎”“闪电旋涡”时，需要在发动的同时确定破坏哪名对方玩家的怪兽，然后才转移优先权。</span></p></li><li><p><span>例2：发动“沙尘之大龙卷”时，需要在发动的同时确定破坏哪名对方玩家的魔法·陷阱卡（可与取具体对象</span><strong><span>同时进行</span></strong><span>），然后才转移优先权。</span></p></li><li><p><span>例3：发动“零式魔导粉碎机”的效果时，需要在发动的同时造成哪名对方玩家伤害，然后才转移优先权。</span></p></li></ul></li><li><p><span>如文本之间存在</span><strong><span>明显关联性</span></strong><span>，则上下文之间的“对方”玩家</span><strong><span>必须是同一人</span></strong><span>。</span></p><ul><li><p><span>例1：发动“次元壁”时，怪兽发动攻击宣言的“对方”与代替承受战斗伤害的“对方”必须是同一人。</span></p></li><li><p><span>例2：“削魂的死灵”只能让</span><strong><span>被直接攻击成功、受到战斗伤害</span></strong><span>的那名“对方”玩家丢弃手卡。</span></p></li><li><p><span>例3：“强夺”只能让</span><strong><span>被夺取控制权</span></strong><span>的那名玩家回复基本分。</span></p></li><li><p><span>例4：攻击里侧守备表示“魔法神灯”的“对方”与被转移攻击为的怪兽的“对方”必须是同一人。</span></p></li></ul></li><li><p><span>部分</span><strong><span>特定阶段·步骤中发动的诱发类效果</span></strong><span>文本中的“对方”，是</span><strong><span>作为回合玩家的对方玩家</span></strong><span>。如果当前是</span><strong><span>自己回合</span></strong><span>，则改为适用1的规则确定具体的对方玩家。</span></p><ul><li><p><span>例1：“真实之眼”的只回复</span><strong><span>作为回合玩家的对方玩家</span></strong><span>的基本分（按照</span><strong><span>作为回合玩家的对方玩家</span></strong><span>判断是否存在魔法卡），但所有对方玩家把手卡持续公开。</span></p></li><li><p><span>例2：“风之精灵 迦楼罗”在每名对方玩家的结束阶段都能发动效果，但只能变更</span><strong><span>当前回合的对方玩家</span></strong><span>的怪兽的表示形式。</span></p></li><li><p><span>例3：“通灵外质体”发动效果的同时，由回合玩家</span><strong><span>确定具体的（回合玩家来看的）对方玩家</span></strong><span>，效果处理时给与该具体玩家伤害。</span></p></li></ul></li></ol><p><span>部分</span><strong><span>无种类效果</span></strong><span>文本中的“对方”，可以是</span><strong><span>任意一名对方玩家</span></strong><span>。</span></p><ul><li><p><span>例1：“电子龙”在只有</span><strong><span>任意名对方玩家</span></strong><span>场上存在怪兽（自己场上不存在怪兽）的场合，都可以从手卡特殊召唤。</span></p></li><li><p><span>例2：“魔导电子巨人”只在自己场上的怪兽数量比</span><strong><span>某一名对方玩家</span></strong><span>场上的怪兽少2只以上的场合才能从手卡特殊召唤，即</span><strong><span>不能跨玩家合计计算</span></strong><span>。</span></p></li></ul><p><span>部分</span><strong><span>永续类效果、效果外文本、进入连锁但持续适用的</span></strong><span>文本中的“对方”，是</span><strong><span>所有对方玩家</span></strong><span>。原则是</span><strong><span>尽量规避频繁的适用玩家变化</span></strong><span>。</span></p><ul><li><p><span>例1：根据“灵灭术师 海空”的永续效果，</span><strong><span>所有对方玩家</span></strong><span>不能把</span><strong><span>所有玩家</span></strong><span>墓地的卡除外。</span></p></li><li><p><span>例2：“光之护封剑”在</span><strong><span>所有对方玩家回合计算</span></strong><span>的均至少3回合后的</span><strong><span>最后一名满足条件的对方玩家</span></strong><span>结束阶段破坏，期间所有对方玩家怪兽不能攻击宣言。</span></p></li><li><p><span>例3：根据“冲锋陷阵的队长”的永续效果，</span><strong><span>所有对方玩家</span></strong><span>均不能选择</span><strong><span>所有玩家</span></strong><span>其他的战士族怪兽作为攻击对象。</span></p></li><li><p><span>例4：“沉默剑士 LV5”不受</span><strong><span>所有对方玩家</span></strong><span>的魔法卡的效果影响。</span></p></li><li><p><span>例5：“神圣之魂”在</span><strong><span>所有对方玩家</span></strong><span>战斗阶段内让</span><strong><span>所有对方场上</span></strong><span>的怪兽的攻击力下降。</span></p></li><li><p><span>例6：“反怒的熊猫”根据</span><strong><span>所有对方场上</span></strong><span>的怪兽的数目上升攻击力。</span></p></li><li><p><span>例7：“古代的机械巨人”攻击的场合，</span><strong><span>所有对方玩家</span></strong><span>直到伤害步骤结束时魔法·陷阱卡不能发动。</span></p></li><li><p><span>例8：“催眠术”对</span><strong><span>所有对方玩家</span></strong><span>下次的各自回合，都不能把怪兽的表示形式变更。</span></p></li></ul><p><span>只要记述的“对方”满足发动条件，</span><strong><span>不需要增加其他限制</span></strong><span>，即可以“援助他人”。其他限制仍需遵守。</span></p><ul><li><p><span>发动“神圣防护罩 -反射镜力-”时，发动的玩家</span><strong><span>可以不是被攻击的玩家</span></strong><span>，但破坏的必须是攻击玩家的怪兽。</span></p></li><li><p><span>发动“阿努比斯的裁决”时，发动的玩家</span><strong><span>可以不是被那张魔法卡破坏自身魔法·陷阱卡的玩家</span></strong><span>，但破坏的必须是发动那张魔法卡的玩家的怪兽。</span></p></li></ul><h3 id='3双方自己对方互相等多方类文本'><strong><span>（3）“双方”“自己·对方”“互相”等多方类文本</span></strong></h3><p><span>一般</span><strong><span>进入连锁的效果</span></strong><span>，记述有这类文本，一般指</span><strong><span>自己与某个（些）特定对方玩家</span></strong><span>。</span></p><ol start='' ><li><p><span>需要发动卡或效果的同时</span><strong><span>确定具体的对方玩家，然后才转移优先权</span></strong><span>。</span></p><ul><li><p><span>例1：发动“魂粉碎”的效果时，需要在发动的同时确定</span><strong><span>与哪名对方玩家</span></strong><span>除外互相墓地的怪兽，然后才转移优先权。</span></p></li><li><p><span>例2：发动“手札对换”时，需要在发动的同时确定</span><strong><span>与哪名对方玩家</span></strong><span>进行交换，然后才转移优先权，但公开手卡是向所有玩家公开。</span></p></li></ul></li><li><p><span>记述</span><strong><span>特定阶段·步骤</span></strong><span>的这类文本，在</span><strong><span>所有玩家的对应阶段·步骤中发动/适用</span></strong><span>。</span></p><ul><li><p><span>例1：“通灵外质体”的效果在</span><strong><span>所有玩家的结束阶段</span></strong><span>均会发动1次，只对确定的1名具体对方玩家造成伤害。</span></p></li><li><p><span>例2：“阿匹卜之化神”在</span><strong><span>所有玩家的主要阶段</span></strong><span>都可以发动。</span></p></li></ul></li><li><p><span>特别的，</span><strong><span>有其他文本突破限制</span></strong><span>的，即使是进入连锁的文本，依然</span><strong><span>对所有玩家均适用</span></strong><span>。</span></p><ul><li><p><span>例：“变形壶”“手札抹杀”的效果要求“有手卡的玩家”丢弃所有手卡，因而抽卡也是对所有玩家均适用。</span></p></li></ul></li></ol><p><span>部分</span><strong><span>永续类效果、效果外文本、进入连锁但持续适用的</span></strong><span>的这类文本，视为</span><strong><span>所有玩家均适用</span></strong><span>。</span></p><ul><li><p><span>例1：“恶魔侦察者”的效果抽到的卡，是</span><strong><span>所有玩家确认</span></strong><span>。</span></p></li><li><p><span>例2：“人造人-念力震慑者”的永续效果，是</span><strong><span>所有玩家不能</span></strong><span>把场上的陷阱卡的效果发动。</span></p></li><li><p><span>例3：“黑魔术少女”根据</span><strong><span>所有玩家墓地</span></strong><span>“黑魔术师”“黑混沌之魔术师”的数量上升攻击力。</span></p></li><li><p><span>例4：根据“魔力之枷”的效果，</span><strong><span>所有玩家</span></strong><span>从手卡把卡召唤·特殊召唤·发动·盖放，都必须支付基本分。</span></p></li><li><p><span>例5：“群雄割据”对</span><strong><span>所有玩家</span></strong><span>均有种族种类的限制。</span></p></li><li><p><span>例6：发动“大寒波”后，</span><strong><span>所有玩家</span></strong><span>均不能有魔法·陷阱卡的效果使用以及发动·盖放。</span></p></li></ul><h3 id='4优先权转移'><strong><span>（4）优先权转移</span></strong></h3><p><span>相较于常规决斗，有以下微调。以下部分并非优先权转移的全部内容，请在常规决斗的基础上进行理解。</span></p><p><strong><span>①一般原则</span></strong></p><p><strong><span>从回合玩家开始</span></strong><span>决定是否进行某些操作（如发动效果等），当回合玩家放弃优先权后，优先权转移到其</span><strong><span>下家</span></strong><span>，以此类推，一直到回合玩家的</span><strong><span>上家</span></strong><span>放弃优先权，继续回合玩家的回合进程。</span></p><p><strong><span>②特殊规定</span></strong></p><p><span>原则为</span><strong><span>所有玩家都要依次决定一遍，但被直接影响的玩家优先排在其他玩家前面，而被直接影响的玩家内部依然是依次决定</span></strong><span>，具体细节如下。</span></p><ol start='' ><li><p><span>如那个操作</span><strong><span>不直接影响其他玩家</span></strong><span>，则</span><strong><span>从操作玩家起算的下家开始</span></strong><span>决定是否发动效果等，并转移优先权，以此类推，一直到操作玩家的上家放弃优先权。</span></p></li><li><p><span>如那个操作</span><strong><span>直接影响其他玩家</span></strong><span>（如攻击、取对象等），则在1的基础上，</span><strong><span>优先让本次操作受到影响的玩家</span></strong><span>排在从操作玩家起算的下家前决定是否发动效果等，并转移优先权。</span></p></li><li><p><span>受到影响玩家2名以上的场合，</span><strong><span>以操作玩家为起点，按那些受到影响玩家之间的上下家关系</span></strong><span>，依此决定是否发动效果等，并转移优先权。</span></p></li><li><p><span>受到影响玩家均放弃优先权后，以操作玩家为起点，其他玩家</span><strong><span>未优先决定过</span></strong><span>的，再按1处理。已经优先决定过的此时不再需要决定，即</span><strong><span>无需重复询问</span></strong><span>。</span></p></li><li><p><span>处理完后会回到回合玩家的对应时点，尤其是在同一连锁块中，只要有人决定发动效果，则该连锁块中前面各连锁上的</span><strong><span>其余未轮到玩家的决定权会被跳过</span></strong><span>。</span></p><ul><li><p><span>例1：共5名玩家A、B、C、D、E依次行动，A以B、D场上各1张卡发动“神鸟攻击”，此时是</span><strong><span>被直接影响</span></strong><span>的B、D先依次决定是否连锁，然后才到</span><strong><span>未被直接影响</span></strong><span>的C、E依次决定是否连锁，</span><strong><span>后续无需重新确定</span></strong><span>B、D是否决定连锁。</span></p></li><li><p><span>例2：例1中，若D决定连锁发动“王宫的通告”，此时无需再让C、E决定是否对A发动的“神鸟攻击”决定是否连锁，而是</span><strong><span>从D的下家E开始</span></strong><span>决定是否连锁发动其他卡或效果。实际上就相当于</span><strong><span>跳过了C、E对A的“神鸟攻击”的连锁决定权</span></strong><span>。</span></p></li></ul></li><li><p><span>全部玩家均放弃优先权后，继续回合玩家的回合进程。</span></p></li><li><p><strong><span>必发的诱发类、诱发即时类效果</span></strong><span>不会被因此跳过，因具体与</span><strong><span>优先度</span></strong><span>相关。</span></p></li></ol><p><strong><span>③优先度</span></strong></p><p><span>关于优先度的处理（即</span><strong><span>同一时点多个诱发类、诱发即时类效果构成连锁的顺序</span></strong><span>规则），在原有规则的基础上参照上文。</span></p><p><span>优先度可参考碎冰的规则整合的“同一时点发动多个诱发类效果”：</span><a href='https://ocg-rule.readthedocs.io/zh-cn/latest/c03/%E8%AF%B1%E5%8F%91%E7%B1%BB%E6%95%88%E6%9E%9C.html#id30' target='_blank' class='url'>https://ocg-rule.readthedocs.io/zh-cn/latest/c03/%E8%AF%B1%E5%8F%91%E7%B1%BB%E6%95%88%E6%9E%9C.html#id30</a><span> 。</span></p><h3 id='5落败玩家卡片回合处理'><strong><span>（5）落败玩家卡片、回合处理</span></strong></h3><p><strong><span>①落败玩家持有且控制</span></strong></p><p><span>那些卡</span><strong><span>全部离开游戏，不视为送去墓地或除外</span></strong><span>等，尤其是不视为</span><strong><span>因效果送去墓地、除外、离开场上</span></strong><span>等。那些效果</span><strong><span>未发动、未适用的全部不发动、不适用</span></strong><span>；</span><strong><span>已发动</span></strong><span>进入连锁的仍会</span><strong><span>占用时点</span></strong><span>，是否继续适用参照</span><strong><span>是否依赖落败玩家的卡或决定</span></strong><span>的原则。</span></p><p><span>但视为</span><strong><span>离开场上或其他区域</span></strong><span>，其他玩家的卡或效果可以发动、适用。</span></p><ul><li><p><span>例1：落败玩家持有且控制的“三眼怪”“异次元的侦察机”效果不能发动，已发动进入连锁的效果</span><strong><span>不适用</span></strong><span>（卡本身或卡组已不存在），仍会</span><strong><span>占用时点</span></strong><span>。</span></p></li><li><p><span>例2：以落败玩家控制的怪兽为对象的“拷问车轮”，会在落败玩家的卡全部离开游戏时</span><strong><span>破坏</span></strong><span>。</span></p></li><li><p><span>例3：墓地已发动的“阴间领路人”在适用前</span><strong><span>持有玩家落败</span></strong><span>的场合，效果处理时依然把</span><strong><span>现有玩家</span></strong><span>场上的对象怪兽破坏（</span><strong><span>效果处理不依赖落败玩家</span></strong><span>）。</span></p></li><li><p><span>例4：已发动的“地碎”在适用前</span><strong><span>持有玩家落败</span></strong><span>，效果处理时已确定的具体玩家场上守备力相同的怪兽2只以上的场合，效果不适用（效果处理</span><strong><span>依赖落败玩家的决定</span></strong><span>）。</span></p></li></ul><p><strong><span>②落败玩家持有，其他玩家控制</span></strong></p><p><span>那些卡仍保留在控制者处，直至需要</span><strong><span>归还持有者控制</span></strong><span>（离开场上、控制权归还等）时，视为直接从控制者处离开。其余参考“落败玩家持有且控制”。</span></p><ul><li><p><span>例：被“强夺”夺取了控制权的玩家落败后，那只怪兽依然继续存在，“强夺”由于依然存在会</span><strong><span>继续发动</span></strong><span>回复基本分的</span><strong><span>必发效果</span></strong><span>，但</span><strong><span>不再对落败玩家适用</span></strong><span>。</span></p></li></ul><p><strong><span>③其他玩家持有，落败玩家控制</span></strong></p><p><span>那些卡</span><strong><span>送去持有者墓地或除外</span></strong><span>等，</span><strong><span>正常发动、处理效果</span></strong><span>，此处不作赘述。</span></p><p><span>其余参考“落败玩家持有且控制”。</span></p><ul><li><p><span>例1：因落败而</span><strong><span>送去现有玩家墓地</span></strong><span>的“三眼怪”，会由该</span><strong><span>现有玩家发动并适用其效果</span></strong><span>。</span></p></li><li><p><span>例2：因落败而</span><strong><span>送去现有玩家墓地</span></strong><span>的“多尔·多拉”，</span><strong><span>不能发动效果</span></strong><span>。</span></p></li></ul><p><strong><span>④落败玩家回合处理</span></strong></p><ol start='' ><li><p><span>若落败玩家</span><strong><span>非回合玩家</span></strong><span>，所有处理完成后，</span><strong><span>继续回合玩家的回合进程</span></strong><span>。</span></p></li><li><p><span>若落败玩家为</span><strong><span>回合玩家</span></strong><span>，所有处理完成后，一般不等待本回合</span><strong><span>其他阶段·步骤</span></strong><span>结束，直接进入</span><strong><span>落败玩家后面首个现存玩家</span></strong><span>回合的抽卡阶段。</span><strong><span>伤害步骤</span></strong><span>例外，会经历完成的本次伤害步骤后再直接进入</span><strong><span>落败玩家后首个现存玩家</span></strong><span>回合的抽卡阶段，即不再无意义进入落败玩家的战斗步骤。</span></p><ul><li><p><span>例：A控制的“三眼怪”攻击其他玩家攻击表示的“天空骑士 珀耳修斯”后落败，</span><strong><span>依然需要进入伤害计算后</span></strong><span>，由“天空骑士 珀耳修斯”发动、处理效果后，再进入后面首个现存玩家回合的抽卡阶段。</span></p></li></ul></li></ol><p><strong><span>⑤战斗步骤的卷回</span></strong></p><p><span>若落败玩家为</span><strong><span>原被攻击怪兽的控制者</span></strong><span>，此时视为“</span><strong><span>对方场上的怪兽数量发生变化</span></strong><span>”，适用战斗步骤的卷回。</span></p><h3 id='6特殊胜利'><strong><span>（6）特殊胜利</span></strong></h3><p><span>因极少机会测试特殊胜利的胜率及平衡性，暂</span><strong><span>不推荐玩家使用</span></strong><span>特殊胜利卡组进行本规则的游戏。</span></p><p><span>但欢迎有兴趣的玩家自行尝试并分享数据、体验。</span></p><p><span>若坚持使用，本人建议在下文的团队模式中使用，且特殊胜利改为“</span><strong><span>先确定具体的某个对方玩家落败，若此时团队不唯一，则玩家自身再落败</span></strong><span>”。</span></p><h1 id='三混战模式多人模式参考'><strong><span>三、混战模式多人模式参考</span></strong></h1><p><span>多人模式及其变式多种多样、变化无穷，无需局限于本文举例，可以参考</span><strong><span>其他桌游</span></strong><span>的多人模式进行。</span></p><h2 id='1基础玩法'><strong><span>1、基础玩法</span></strong></h2><p><span>玩家之间可以</span><strong><span>随意决定团队的数目及团队规模</span></strong><span>，当然也可以“</span><strong><span>一人成队</span></strong><span>”。</span></p><p><span>当决斗中只剩下</span><strong><span>唯一未落败</span></strong><span>的团队时，该团队决斗胜利。决斗结束。当然也可制定其他胜利条件。</span></p><p><span>尝试以此进行</span><strong><span>跨表对决</span></strong><span>，感受与</span><a href='../1.2026-6-21/1.2026-6-21.html'><span>不对称组队决斗</span></a><span>风味不同的BOSS战吧！</span></p><h2 id='2变式玩法欢迎微调拓展'><strong><span>2、变式玩法（欢迎微调、拓展）</span></strong></h2><h3 id='1团队模式'><strong><span>（1）团队模式</span></strong></h3><p><strong><span>①身份局</span></strong></p><p><span>身份的种类与规则由玩家确定，可参考其他桌游，本文暂不提供具体设计。</span></p><p><span>玩家尽量按照</span><strong><span>自己身份（无论隐藏还是公开）的胜利条件</span></strong><span>行动。</span></p><p><span>可以制定</span><strong><span>身份之间互动的奖惩规则</span></strong><span>。</span></p><p><span>在某个或某类身份达到胜利条件时，游戏结束。</span></p><p><strong><span>②2V2（非“组队决斗”）</span></strong></p><p><span>与</span><strong><span>组队决斗</span></strong><span>不同，这里的4名玩家以混战模式决斗，任意一个团队的2名玩家</span><strong><span>均落败</span></strong><span>，决斗结束。</span></p><p><span>行动顺序随意，但一般建议</span><strong><span>梅花间竹</span></strong><span>会更有游戏性。想连续行动的也可以参考“</span><strong><span>A1→B1→B2→A2→A1→……</span></strong><span>”的次序。</span></p><p><span>在某名玩家落败时，其队友</span><strong><span>立刻</span></strong><span>选择其中1项</span><strong><span>补给规则</span></strong><span>：</span></p><ul><li><p><span>回复4000基本分。</span></p></li><li><p><span>抽2张卡。</span></p></li><li><p><span>回复2000基本分，抽1张卡。</span></p></li><li><p><span>放弃补给。</span></p></li></ul><p><span>补给规则</span><strong><span>不诱发或适用</span></strong><span>对基本分变化、抽卡的效果，不受“</span><strong><span>不能进行</span></strong><span>”类效果的影响。</span></p><p><strong><span>③3V3</span></strong></p><p><span>敬请期待。</span></p><p><strong><span>④3V3（无退出机制）</span></strong></p><p><span>敬请期待。</span></p><h3 id='2非团队模式'><strong><span>（2）非团队模式</span></strong></h3><p><strong><span>①杀上保下</span></strong></p><p><span>一般建议3人进行。</span></p><p><span>每人的胜利条件相同：在</span><strong><span>上家决斗落败</span></strong><span>的同时，保障</span><strong><span>下家决斗不落败</span></strong><span>。 </span></p><p><span>任意一名玩家达到胜利条件后，决斗结束。</span></p><p><span>2人以上同时决斗落败的场合，改为</span><strong><span>唯一现存玩家</span></strong><span>决斗胜利。决斗结束。</span></p><p><strong><span>②敬请期待</span></strong></p><h1 id='后记'><strong><span>后记</span></strong></h1><p><span>本文V1版本历经数月断断续续写成，本文可以当作简易的规则书使用。</span></p><p><span>为减少规则争议，考虑的情况较多，框架亲自玩一次基本就懂了，具体细节可以简化为碰到了再查阅。</span></p><p><span>也欢迎各位读者姥爷提出意见、建议，并亲自参与微调、拓展各种玩法。</span></p><p><span>用决斗，给大家，带来笑容吧！</span></p></div></div>
+
+<script>(function(){function e(e,n,i){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var t=e.target;t&&t!=this;t=t.parentNode)if(t.matches(n)){!1===i.call(t,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)}var t=document.body.parentElement,i=[],r=null,o=document.body.classList.contains("typora-export-collapse-outline");function a(){return t.scrollTop}e("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),u(),!1}),e("click",".outline-item",function(e){var t=this.querySelector(".outline-label");location.hash="#"+t.getAttribute("href"),o&&((t=this.closest(".outline-item-wrapper").classList).contains("outline-item-open")||t.add("outline-item-open"),d(),t.add("outline-item-active"))});function s(){var e=a();r=null;for(var t=0;t<i.length&&i[t][1]-e<60;t++)r=i[t]}function n(){c=setTimeout(function(){var n;i=[],n=a(),document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(e=>{var t=e.getAttribute("id");i.push([t,n+e.getBoundingClientRect().y])}),s(),u()},300)}var l,c,d=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},u=function(){if(r&&(d(),t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(r[0]):r[0])+'"]')))if(o){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var t,n=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");n;)n=(t=n).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")};window.addEventListener("scroll",function(e){l&&clearTimeout(l),l=setTimeout(function(){s(),u()},300)});window.addEventListener("resize",function(e){c&&clearTimeout(c),n()}),n()})();</script></body>
+</html>
